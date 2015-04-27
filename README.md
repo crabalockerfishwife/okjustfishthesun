@@ -1,5 +1,5 @@
-# FINAL PROJECT
-##Members: Justin Strauss, Sunnam Quispe, Fish M., Christina Ko
+# zpaths
+##Members: Justin Strauss, Sunnam Quispe, Fish Milnikiewicz, Christina Ko
 
 ###Description:
 ####
