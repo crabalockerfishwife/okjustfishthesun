@@ -38,3 +38,10 @@ Watch our demo video:
 
 ## Timeline
 - [X] 4/27: finalize project idea (all)
+- [ ] 4/29: search bar setup 
+- [ ] 5/1: return list with coordinates and travel times for walk/biking
+- [ ] 5/3: test heatmap for walking/biking
+- [ ] 5/5: return list for transit/driving
+- [ ] 5/7: test heatmap for transit/driving
+- video
+- logo
