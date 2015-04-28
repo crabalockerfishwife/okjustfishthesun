@@ -1,7 +1,7 @@
 zpaths
 =========
 Software Development Spring Term Final Project  
-Visit our website:  
+Visit our website:  [http://zpaths.openpaths.cc/](http://zpaths.openpaths.cc/)
 Watch our demo video:  
 
 ## About
@@ -31,10 +31,10 @@ Watch our demo video:
 - [Google Places](https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete) for location autocompletion  
 
 ## Contributors
-[Christina Ko]():  
-[Fish Milnikiewicz]():  
-[Sunnam Quispe]():  
-[Justin Strauss](https://github.com/justinstrauss):  
+[Christina Ko](https://github.com/ChristinaKo): Backend - Google Heatmap Layers API  
+[Fish Milnikiewicz](https://github.com/crabalockerfishwife): Styling - CSS, D3, etc.  
+[Sunnam Quispe](https://github.com/konceq): Backend - Google Maps API  
+[Justin Strauss](https://github.com/justinstrauss): Framework
 
 ## Timeline
 - [X] 4/27: finalize project idea (all)
