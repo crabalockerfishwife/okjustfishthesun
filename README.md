@@ -48,7 +48,7 @@ Watch our demo video:
 - [ ] 5/13: integrate with Google Login
 - [ ] 5/15: test, code review, add any additional features
 - [ ] 5/17: use D3 to make cool logo
-- [ ] 5/19: make Digital Ocean droplet
+- [X] 5/19: make Digital Ocean droplet
 - [ ] 5/21: shoot promo video
 - [ ] 5/23: edit promo video and post to YouTube
 - [ ] 5/25: fin
