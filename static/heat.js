@@ -1,5 +1,4 @@
 var map, pointarray, heatmap;
-
 // var taxiData = [
 //   new google.maps.LatLng(37.782551, -122.445368),
 //   new google.maps.LatLng(37.782745, -122.444586),
@@ -504,7 +503,7 @@ var map, pointarray, heatmap;
 // ];
 
 
-ExData =[[37.755503, -122.403406,0.1],[37.754665, -122.403242,0.2],[37.753837, -122.403172,0.3],[37.752986, -122.403112, 0.4],[37.751266, -122.403355,0.5]];
+ExData =[[37.762126, -122.405813,6],[37.761344, -122.406215,5],[37.760556, -122.406495,4],[37.759732, -122.406484,3],[37.758910, -122.406228,7],[37.758182, -122.405695,5],[37.757676, -122.405118,4],[37.757039, -122.404346, 6],[37.756335, -122.403719,8],[37.755503, -122.403406,1],[37.754665, -122.403242,2],[37.753837, -122.403172,3],[37.752986, -122.403112,4],[37.751266, -122.403355,5]];
 //results should be an array of data points given by justin strauss
 var createMap = function (results){
     console.log(results);
@@ -515,7 +514,6 @@ var createMap = function (results){
     return heatMapData;
 }
     
-//three options
 function initialize() {
   var mapOptions = {
     zoom: 13,
