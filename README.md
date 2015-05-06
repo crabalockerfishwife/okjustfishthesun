@@ -40,15 +40,15 @@ Watch our demo video:
 - [X] 4/27: finalize project idea (all)
 - [ ] 4/29: search bar setup 
 - [ ] 5/1: return list with coordinates and travel times for walk/biking
-- [ ] 5/3: test heatmap for walking/biking
+- [X] 5/3: test heatmap for walking/biking
 - [ ] 5/5: return list for transit/driving
-- [ ] 5/7: test heatmap for transit/driving
+- [X] 5/7: test heatmap for transit/driving
 - [ ] 5/9: tie up loose ends
 - [ ] 5/11: add ability to drop pinpoints onto map
 - [ ] 5/13: integrate with Google Login
 - [ ] 5/15: test, code review, add any additional features
 - [ ] 5/17: use D3 to make cool logo
-- [ ] 5/19: make Digital Ocean droplet
+- [X] 5/19: make Digital Ocean droplet
 - [ ] 5/21: shoot promo video
 - [ ] 5/23: edit promo video and post to YouTube
 - [ ] 5/25: fin
