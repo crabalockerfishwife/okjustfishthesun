@@ -1,24 +1,10 @@
 <html>
   <head>
-    HELLO FINAL PROJECT BASIC PAGE
   </head>
   <body>
-    
+    <script src="logo.js"></script> 
+    <object id="logo" data="../static/logo.svg"></object>
   </body>
-  <script>
-    function svgloaded() {
-    console.log("test");
-    var svgEmbed = document.querySelector("#svgembed");
-    var svg = svgEmbed.getSVGDocument();
-    var td = svg.getElementById("textBlock");
-    td.textContent = "Foo";
-    var gn = svg.getElementById("greenBlock");
-    gn.setAttribute("fill", "#ff0000");
-    }
-    document.addEventListener("DOMContentLoaded", function(){
-    var svgEmbed = document.querySelector("#svgembed");
-    svgEmbed.addEventListener("load", svgloaded);
-    },false);
-</script> 
-<object data="/static/logo.svg"></object>
+  
+
 </html>
