@@ -516,14 +516,15 @@ var createMap = function (results){
 }
     //limit zoom 
 function initialize() {
-  var mapOptions = {
-    zoom: 13,
-    center: new google.maps.LatLng(37.774546, -122.433523),
-    mapTypeId: google.maps.MapTypeId.SATELLITE
+    var mapOptions = {
+	zoom: 13,
+	center: new google.maps.LatLng(37.774546, -122.433523),
+	minZoom: 12,
+	maxZoom: 15
   };
 
   map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
+			    mapOptions);
 
    // var pointArray = new google.maps.MVCArray(createMap(ExData));
  var pointArray = new google.maps.MVCArray(taxiData);
