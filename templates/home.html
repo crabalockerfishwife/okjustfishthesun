@@ -1,24 +1,39 @@
+<!doctype html>
 <html>
   <head>
-    HELLO FINAL PROJECT BASIC PAGE
+    <script type="text/javascript">
+      var logo;
+      var svgdoc;
+      var svg;
+
+      window.onload=function(){
+      logo = document.getElementById("logo");
+      svgdoc = logo.contentDocument;
+      svg = svgdoc.getElementById("svg2");
+      svgdoc.getElementById("path3349").setAttribute("fill", "#808080");
+      svgdoc.getElementById("path3353").setAttribute("fill", "000000");
+      window.setTimeout("fillblack()",1000);
+      window.setTimeout("fillgray()",2000);
+      window.setTimeout("fillyellow()",4000);
+      };
+
+      function fillblack(){
+      svgdoc.getElementById("path3349").setAttribute("fill", "#000000");
+      };
+
+      function fillgray(){
+      svgdoc.getElementById("path3351").setAttribute("fill", "#808080");
+      };
+
+      function fillyellow(){
+      svgdoc.getElementById("path3353").setAttribute("fill", "#ffff00");
+      };
+
+    </script>
   </head>
   <body>
-    
+    <center>
+    <object id="logo" data="../static/logo.svg" type="image/svg+xml"></object>
+    </center>
   </body>
-  <script>
-    function svgloaded() {
-    console.log("test");
-    var svgEmbed = document.querySelector("#svgembed");
-    var svg = svgEmbed.getSVGDocument();
-    var td = svg.getElementById("textBlock");
-    td.textContent = "Foo";
-    var gn = svg.getElementById("greenBlock");
-    gn.setAttribute("fill", "#ff0000");
-    }
-    document.addEventListener("DOMContentLoaded", function(){
-    var svgEmbed = document.querySelector("#svgembed");
-    svgEmbed.addEventListener("load", svgloaded);
-    },false);
-</script> 
-<object data="/static/logo.svg"></object>
 </html>
