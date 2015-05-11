@@ -1,7 +1,49 @@
+<<<<<<< HEAD
+<!doctype html>
 <html>
   <head>
-    HELLO FINAL PROJECT BASIC PAGE
-  </head>
-  
+    <script type="text/javascript">
+      var logo;
+      var svgdoc;
+      var svg;
 
+      window.onload=function(){
+      logo = document.getElementById("logo");
+      svgdoc = logo.contentDocument;
+      svg = svgdoc.getElementById("svg2");
+      svgdoc.getElementById("path3349").setAttribute("fill", "#808080");
+      svgdoc.getElementById("path3353").setAttribute("fill", "000000");
+      window.setTimeout("fillblack()",1000);
+      window.setTimeout("fillgray()",2000);
+      window.setTimeout("fillyellow()",4000);
+      };
+
+      function fillblack(){
+      svgdoc.getElementById("path3349").setAttribute("fill", "#000000");
+      };
+
+      function fillgray(){
+      svgdoc.getElementById("path3351").setAttribute("fill", "#808080");
+      };
+
+      function fillyellow(){
+      svgdoc.getElementById("path3353").setAttribute("fill", "#ffff00");
+      };
+
+    </script>
+  </head>
+  <body>
+    <center>
+    <object id="logo" data="../static/logo.svg" type="image/svg+xml"></object>
+    </center>
+=======
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html lang="en">
+  <head>
+  </head>
+  <body> 
+    <object id="logo" data="../static/logo.svg"></object>
+    <script src="logo.js"></script>
+>>>>>>> 2f8c987e15931029f8a113c92fb03da1af19f8b5
+  </body>
 </html>
