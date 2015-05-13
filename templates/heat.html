@@ -19,12 +19,11 @@ Heatmaps
         border: 1px solid #999;
       }
     {% endblock %}
-    {% block script %}
-    <script src="../static/heatmap.js"></script>
-    <script src="../static/gmaps-heatmap.js"></script>
+{% block script %}
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script>
     <script src="../static/heat.js"> </script>
     {% endblock %}
     {% block bodycontent %}
-    hi
+    <div id="map-canvas">  </div>
     {% endblock %}
 </html>
