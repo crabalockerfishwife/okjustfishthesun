@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <head>
   <link rel="stylesheet" href="/static/extras.css">
@@ -83,3 +84,4 @@ Home
     </center>
 {% endblock %}
 </html>
+>>>>>>> master
