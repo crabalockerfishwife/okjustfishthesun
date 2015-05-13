@@ -1,12 +1,10 @@
-{% extends "base.html" %}
-{% block title %}
-Home
-{% endblock %}
-    {% block styling %}
+<!doctype html>
+<html class="yui3-js-enabled" lang="en">
+  <head>
+    <style type="text/css">
       body { background-image: url(../static/nyc.jpg); background-color: #99FF99;}
-      #button {background-color:yellow;color:black}
-    {% endblock %}
-    {% block script %}
+    </style>
+    <script type="text/javascript">
       var logo;
       var svgdoc;
       var svg;
@@ -33,18 +31,24 @@ Home
       function fillyellow(){
       svgdoc.getElementById("path3353").setAttribute("fill", "#ffff00");
       };
-    {% endblock %}
-    {% block bodycontent %}
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  </head>
+  <body>
     <center>
     <div class="splash-container">
       <div class="splash">
         <h1 class="splash-head">
 	  <object id="logo" data="../static/logo.svg" type="image/svg+xml"></object>
 	</h1>
-	<a id="button" class="pure-button pure-button pure-button-primary" href="/heat">GET A HEATMAP</a>
+	<p class="splash-subhead">WELCOME to ZPATHS</p>
+	<a class="pure-button pure-button pure-button-primary" href="/heat">GET A HEATMAP</a>
       </p>
      </div>
     </div>
     </center>
-{% endblock %}
+  </body>
 </html>
