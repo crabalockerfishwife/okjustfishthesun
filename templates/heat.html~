@@ -18,6 +18,17 @@ Heatmaps
         padding: 5px;
         border: 1px solid #999;
       }
+<<<<<<< HEAD
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script>
+    <script src="../static/heat.js"> </script>
+
+    </head>
+
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+=======
     {% endblock %}
     {% block script %}
     <script src="../static/heatmap.js"></script>
@@ -27,4 +38,5 @@ Heatmaps
     {% block bodycontent %}
     hi
     {% endblock %}
+>>>>>>> fish
 </html>
