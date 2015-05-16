@@ -1,10 +1,8 @@
-<<<<<<< HEAD
 <!doctype html>
 <head>
   <link rel="stylesheet" href="/static/extras.css">
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
-
 </head>
 <div class="pure-menu pure-menu-open pure-menu-horizontal">
   <a href="/" class="pure-menu-heading">ZPaths</a>
@@ -13,11 +11,11 @@
     <li><a href="/register">About</a></li>
   </ul>
 </div>
-<hr> <br>
+<br>
 <div class="pure-g">
   <div class="pure-u-1-5"></div>
   <div class="pure-u-3-5">
-
+    
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <ul class=flashes>
@@ -27,61 +25,108 @@
     </ul>
     {% endif %}
     {% endwith %}
-
-<div id="map"></div>
-<script src="../static/home.js"></script>
-    <hr>
+    
+    <div id="map"></div>
+    
+    <script src="../static/home.js"></script>
+    
     <br>
   </div>
-=======
-{% extends "base.html" %}
-{% block title %}
-Home
-{% endblock %}
-    {% block styling %}
-      body { background-image: url(../static/nyc.jpg); background-color: #99FF99;}
-      #button {background-color:yellow;color:black}
-    {% endblock %}
-    {% block script %}
-      var logo;
-      var svgdoc;
-      var svg;
+  {% extends "base.html" %}
+  {% block title %}
+  Home
+  {% endblock %}
+  {% block styling %}
+  body{
+  position:absolute;
+  top: 0; 
+  left: 0;
+  height:100%;
+  width:100%
+  }
+  p{
+  font-size:250% ;
+  letter-spacing: .1em
+}
+  
+  #map-canvas{
+  margin:0px;
+  padding:0px
+  }
+  #mainpage{
+  background-image: url(../static/nyc.jpg); background-color: #99FF99;
+  }
+  #button {background-color:yellow;color:black;letter-spacing:.1em}
+  
+  <!-- #panel { -->
+  <!-- top: 5px; -->
+  <!-- left: 50%; -->
+  <!-- margin-left: -180px; -->
+  <!-- z-index: 5; -->
+  <!-- background-color: #fff; -->
+  <!-- padding: 5px; -->
+  <!-- border: 1px solid #999; -->
+  <!-- } -->
+  
+  {% endblock %}
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script>
+    <script src="../static/heat.js"> </script>
+  {% block script %}
+  var logo;
+  var svgdoc;
+  var svg;
 
-      window.onload=function(){
-      logo = document.getElementById("logo");
-      svgdoc = logo.contentDocument;
-      svg = svgdoc.getElementById("svg2");
-      svgdoc.getElementById("path3349").setAttribute("fill", "#808080");
-      svgdoc.getElementById("path3353").setAttribute("fill", "000000");
-      window.setTimeout("fillblack()",1000);
-      window.setTimeout("fillgray()",2000);
-      window.setTimeout("fillyellow()",4000);
-      };
+  window.onload=function(){
+  logo = document.getElementById("logo");
+  svgdoc = logo.contentDocument;
+  svg = svgdoc.getElementById("svg2");
+  svgdoc.getElementById("path3349").setAttribute("fill", "#808080");
+  svgdoc.getElementById("path3353").setAttribute("fill", "000000");
+  window.setTimeout("fillblack()",1000);
+  window.setTimeout("fillgray()",2000);
+  window.setTimeout("fillyellow()",4000);
+  };
 
-      function fillblack(){
-      svgdoc.getElementById("path3349").setAttribute("fill", "#000000");
-      };
+  function fillblack(){
+  svgdoc.getElementById("path3349").setAttribute("fill", "#000000");
+  };
 
-      function fillgray(){
-      svgdoc.getElementById("path3351").setAttribute("fill", "#808080");
-      };
+  function fillgray(){
+  svgdoc.getElementById("path3351").setAttribute("fill", "#808080");
+  };
 
-      function fillyellow(){
-      svgdoc.getElementById("path3353").setAttribute("fill", "#ffff00");
-      };
-    {% endblock %}
-    {% block bodycontent %}
-    <center>
-    <div class="splash-container">
-      <div class="splash">
-        <h1 class="splash-head">
-	  <object id="logo" data="../static/logo.svg" type="image/svg+xml"></object>
-	</h1>
-	<a id="button" class="pure-button pure-button pure-button-primary" href="/heat">GET A HEATMAP</a>
-      </p>
-     </div>
-    </div>
-    </center>
+  function fillyellow(){
+  svgdoc.getElementById("path3353").setAttribute("fill", "#ffff00");
+  };
+
+  {% endblock %}
+
+  
+  {% block bodycontent %}
+    <div id="mainpage">
+      <center>
+      <div class="splash-container">
+	<div class="splash">
+          <h1 class="splash-head">
+	    <object id="logo" data="../static/logo.svg" type="image/svg+xml"></object>
+	  </h1>
+	  <a id="button" class="pure-button pure-button pure-button-primary" href="#heat">GET A HEATMAP</a>
+</p>
+</div>
+</div>
+</center>
+</div>
+<a name="heat"> 
+  <div id="map-canvas">
+<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices ligula at velit ultricies, in imperdiet nisi tempor. Duis a finibus augue, id facilisis sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam eget semper orci. Cras porta massa felis, in accumsan neque scelerisque interdum. Morbi a sagittis nunc. Mauris accumsan nulla et scelerisque porttitor. Nam sollicitudin euismod massa, et finibus orci pretium sit amet. Nullam porta neque fermentum, porttitor enim id, finibus erat. Nulla auctor nibh ut lectus malesuada pulvinar. Aliquam sollicitudin lorem mauris, vitae facilisis nisl mollis non. Proin blandit est eu odio ultrices convallis. Nulla blandit velit id sapien aliquet, vel tempus mi finibus. Morbi dictum, risus non porta consectetur, purus mauris bibendum sapien, eu pulvinar tellus nunc at velit. Quisque convallis turpis sapien, ac vestibulum nibh placerat at.
+
+Pellentesque feugiat sodales ante quis tristique. Praesent in dui turpis. Etiam ac augue tellus. Donec consectetur aliquet felis, eget condimentum augue sodales ut. Duis eget magna interdum erat varius facilisis. Curabitur imperdiet, nulla in gravida gravida, mauris velit dignissim est, at molestie nisl enim et ante. Etiam sed dui sed turpis venenatis accumsan. Etiam arcu sapien, aliquam tincidunt sagittis ut, vehicula ac odio. Phasellus enim libero, condimentum sit amet eleifend vitae, lacinia in dui. Donec vitae accumsan ipsum, sed scelerisque augue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam eu ornare nisi. Mauris quam libero, porttitor id mattis ut, lobortis ut lectus. Curabitur id nisi vulputate, fermentum enim nec, vehicula arcu. Mauris mi ex, malesuada ac orci vel, viverra dignissim metus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+
+Suspendisse venenatis, libero a ultrices luctus, nibh elit bibendum ipsum, eu tempus quam turpis quis ex. Sed mollis est dui, id iaculis neque lacinia sed. Nunc lacinia justo eget malesuada bibendum. Vestibulum laoreet nunc nec ligula efficitur rhoncus. Fusce nec molestie nunc. Vivamus a luctus nibh, vehicula semper risus. Proin tellus erat, aliquam ut metus ultrices, fringilla gravida ipsum.
+
+In hac habitasse platea dictumst. Nam tincidunt justo non dapibus tincidunt. Sed eget mauris porttitor, lobortis leo non, sagittis nibh. Nulla venenatis lacinia ex, a facilisis turpis varius imperdiet. Morbi massa felis, luctus quis semper in, pulvinar iaculis elit. Nunc pretium luctus risus, id auctor nibh auctor tincidunt. Quisque facilisis velit ac faucibus mattis. Phasellus nec arcu cursus, sagittis dolor vitae, consequat lorem. Phasellus a lacus vitae magna vestibulum vestibulum sed sed ligula. Cras pretium dui quis felis ultrices egestas. Suspendisse nec tellus vitae arcu pharetra mattis et vitae elit. Vestibulum venenatis rutrum ex ut cursus. Ut pellentesque felis velit, et ornare est porttitor eget. Integer ultricies augue quis pharetra finibus. Aliquam vitae magna nibh.
+
+In malesuada dignissim lacus, a rhoncus nisl convallis nec. Quisque tincidunt faucibus dui, ut scelerisque felis pretium vel. Curabitur ullamcorper sed justo vel feugiat. Maecenas cursus turpis eleifend eleifend eleifend. Nullam blandit mauris eget ligula interdum bibendum. Aenean finibus tellus id ultricies ullamcorper. Morbi et nibh commodo, euismod mi id, lacinia turpis. Donec eu magna condimentum, finibus sapien lobortis, eleifend mauris. Praesent congue fermentum lectus a bibendum. Suspendisse porta venenatis pharetra. Vestibulum risus ligula, feugiat quis volutpat in, semper vitae ligula. Proin auctor non orci vitae imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur porta nec felis quis tempus. In accumsan vestibulum volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+</div> </a>
 {% endblock %}
 </html>
->>>>>>> master
