@@ -1,5 +1,5 @@
 var map, pointarray, heatmap;
-
+console.log("IN HEAT");
 ExData =[[40.781504, -122.405813,634],[37.761344, -122.406215,512],[37.760556, -122.406495,4],[37.759732, -122.406484,33],[37.758910, -122.406228,721],[37.758182, -122.405695,546],[37.757676, -122.405118,4],[37.757039, -122.404346, 161],[37.756335, -122.403719,82],[37.755503, -122.403406,611],[37.754665, -122.403242,2],[37.753837, -122.403172,33],[37.752986, -122.403112,443],[37.751266, -122.403355,509]];
 //results should be an array of data points given by justin strauss
 var taxiData = [
@@ -579,4 +579,3 @@ function changeOpacity() {
   heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
