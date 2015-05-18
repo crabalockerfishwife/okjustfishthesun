@@ -1,6 +1,5 @@
 <!doctype html>
 <head>
-  <link rel="stylesheet" href="/static/extras.css">
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
   <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
 </head>
@@ -50,6 +49,7 @@
 }
   
   #map-canvas{
+  height:100%;
   margin:0px;
   padding:0px
   }
@@ -59,19 +59,10 @@
   }
   #button {background-color:yellow;color:black;letter-spacing:0em}
   
-  <!-- #panel { -->
-  <!-- top: 5px; -->
-  <!-- left: 50%; -->
-  <!-- margin-left: -180px; -->
-  <!-- z-index: 5; -->
-  <!-- background-color: #fff; -->
-  <!-- padding: 5px; -->
-  <!-- border: 1px solid #999; -->
-  <!-- } -->
+
   
   {% endblock %}
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script>
-    <script src="../static/heat.js"> </script>
+
   {% block script %}
   var logo;
   var svgdoc;
@@ -117,17 +108,19 @@
 </div>
 </center>
 </div>
-<a name="heat"> 
-  <div id="map-canvas">
-<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices ligula at velit ultricies, in imperdiet nisi tempor. Duis a finibus augue, id facilisis sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam eget semper orci. Cras porta massa felis, in accumsan neque scelerisque interdum. Morbi a sagittis nunc. Mauris accumsan nulla et scelerisque porttitor. Nam sollicitudin euismod massa, et finibus orci pretium sit amet. Nullam porta neque fermentum, porttitor enim id, finibus erat. Nulla auctor nibh ut lectus malesuada pulvinar. Aliquam sollicitudin lorem mauris, vitae facilisis nisl mollis non. Proin blandit est eu odio ultrices convallis. Nulla blandit velit id sapien aliquet, vel tempus mi finibus. Morbi dictum, risus non porta consectetur, purus mauris bibendum sapien, eu pulvinar tellus nunc at velit. Quisque convallis turpis sapien, ac vestibulum nibh placerat at.
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script>
+    <script src="../static/heat.js"> </script>
+<a name="heat">
+  <div id="map-canvas" style="height:100%;">
+<!-- <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices ligula at velit ultricies, in imperdiet nisi tempor. Duis a finibus augue, id facilisis sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam eget semper orci. Cras porta massa felis, in accumsan neque scelerisque interdum. Morbi a sagittis nunc. Mauris accumsan nulla et scelerisque porttitor. Nam sollicitudin euismod massa, et finibus orci pretium sit amet. Nullam porta neque fermentum, porttitor enim id, finibus erat. Nulla auctor nibh ut lectus malesuada pulvinar. Aliquam sollicitudin lorem mauris, vitae facilisis nisl mollis non. Proin blandit est eu odio ultrices convallis. Nulla blandit velit id sapien aliquet, vel tempus mi finibus. Morbi dictum, risus non porta consectetur, purus mauris bibendum sapien, eu pulvinar tellus nunc at velit. Quisque convallis turpis sapien, ac vestibulum nibh placerat at. -->
 
-Pellentesque feugiat sodales ante quis tristique. Praesent in dui turpis. Etiam ac augue tellus. Donec consectetur aliquet felis, eget condimentum augue sodales ut. Duis eget magna interdum erat varius facilisis. Curabitur imperdiet, nulla in gravida gravida, mauris velit dignissim est, at molestie nisl enim et ante. Etiam sed dui sed turpis venenatis accumsan. Etiam arcu sapien, aliquam tincidunt sagittis ut, vehicula ac odio. Phasellus enim libero, condimentum sit amet eleifend vitae, lacinia in dui. Donec vitae accumsan ipsum, sed scelerisque augue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam eu ornare nisi. Mauris quam libero, porttitor id mattis ut, lobortis ut lectus. Curabitur id nisi vulputate, fermentum enim nec, vehicula arcu. Mauris mi ex, malesuada ac orci vel, viverra dignissim metus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+<!-- Pellentesque feugiat sodales ante quis tristique. Praesent in dui turpis. Etiam ac augue tellus. Donec consectetur aliquet felis, eget condimentum augue sodales ut. Duis eget magna interdum erat varius facilisis. Curabitur imperdiet, nulla in gravida gravida, mauris velit dignissim est, at molestie nisl enim et ante. Etiam sed dui sed turpis venenatis accumsan. Etiam arcu sapien, aliquam tincidunt sagittis ut, vehicula ac odio. Phasellus enim libero, condimentum sit amet eleifend vitae, lacinia in dui. Donec vitae accumsan ipsum, sed scelerisque augue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam eu ornare nisi. Mauris quam libero, porttitor id mattis ut, lobortis ut lectus. Curabitur id nisi vulputate, fermentum enim nec, vehicula arcu. Mauris mi ex, malesuada ac orci vel, viverra dignissim metus. Interdum et malesuada fames ac ante ipsum primis in faucibus. -->
 
-Suspendisse venenatis, libero a ultrices luctus, nibh elit bibendum ipsum, eu tempus quam turpis quis ex. Sed mollis est dui, id iaculis neque lacinia sed. Nunc lacinia justo eget malesuada bibendum. Vestibulum laoreet nunc nec ligula efficitur rhoncus. Fusce nec molestie nunc. Vivamus a luctus nibh, vehicula semper risus. Proin tellus erat, aliquam ut metus ultrices, fringilla gravida ipsum.
+<!-- Suspendisse venenatis, libero a ultrices luctus, nibh elit bibendum ipsum, eu tempus quam turpis quis ex. Sed mollis est dui, id iaculis neque lacinia sed. Nunc lacinia justo eget malesuada bibendum. Vestibulum laoreet nunc nec ligula efficitur rhoncus. Fusce nec molestie nunc. Vivamus a luctus nibh, vehicula semper risus. Proin tellus erat, aliquam ut metus ultrices, fringilla gravida ipsum. -->
 
-In hac habitasse platea dictumst. Nam tincidunt justo non dapibus tincidunt. Sed eget mauris porttitor, lobortis leo non, sagittis nibh. Nulla venenatis lacinia ex, a facilisis turpis varius imperdiet. Morbi massa felis, luctus quis semper in, pulvinar iaculis elit. Nunc pretium luctus risus, id auctor nibh auctor tincidunt. Quisque facilisis velit ac faucibus mattis. Phasellus nec arcu cursus, sagittis dolor vitae, consequat lorem. Phasellus a lacus vitae magna vestibulum vestibulum sed sed ligula. Cras pretium dui quis felis ultrices egestas. Suspendisse nec tellus vitae arcu pharetra mattis et vitae elit. Vestibulum venenatis rutrum ex ut cursus. Ut pellentesque felis velit, et ornare est porttitor eget. Integer ultricies augue quis pharetra finibus. Aliquam vitae magna nibh.
+<!-- In hac habitasse platea dictumst. Nam tincidunt justo non dapibus tincidunt. Sed eget mauris porttitor, lobortis leo non, sagittis nibh. Nulla venenatis lacinia ex, a facilisis turpis varius imperdiet. Morbi massa felis, luctus quis semper in, pulvinar iaculis elit. Nunc pretium luctus risus, id auctor nibh auctor tincidunt. Quisque facilisis velit ac faucibus mattis. Phasellus nec arcu cursus, sagittis dolor vitae, consequat lorem. Phasellus a lacus vitae magna vestibulum vestibulum sed sed ligula. Cras pretium dui quis felis ultrices egestas. Suspendisse nec tellus vitae arcu pharetra mattis et vitae elit. Vestibulum venenatis rutrum ex ut cursus. Ut pellentesque felis velit, et ornare est porttitor eget. Integer ultricies augue quis pharetra finibus. Aliquam vitae magna nibh. -->
 
-In malesuada dignissim lacus, a rhoncus nisl convallis nec. Quisque tincidunt faucibus dui, ut scelerisque felis pretium vel. Curabitur ullamcorper sed justo vel feugiat. Maecenas cursus turpis eleifend eleifend eleifend. Nullam blandit mauris eget ligula interdum bibendum. Aenean finibus tellus id ultricies ullamcorper. Morbi et nibh commodo, euismod mi id, lacinia turpis. Donec eu magna condimentum, finibus sapien lobortis, eleifend mauris. Praesent congue fermentum lectus a bibendum. Suspendisse porta venenatis pharetra. Vestibulum risus ligula, feugiat quis volutpat in, semper vitae ligula. Proin auctor non orci vitae imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur porta nec felis quis tempus. In accumsan vestibulum volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+<!-- In malesuada dignissim lacus, a rhoncus nisl convallis nec. Quisque tincidunt faucibus dui, ut scelerisque felis pretium vel. Curabitur ullamcorper sed justo vel feugiat. Maecenas cursus turpis eleifend eleifend eleifend. Nullam blandit mauris eget ligula interdum bibendum. Aenean finibus tellus id ultricies ullamcorper. Morbi et nibh commodo, euismod mi id, lacinia turpis. Donec eu magna condimentum, finibus sapien lobortis, eleifend mauris. Praesent congue fermentum lectus a bibendum. Suspendisse porta venenatis pharetra. Vestibulum risus ligula, feugiat quis volutpat in, semper vitae ligula. Proin auctor non orci vitae imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur porta nec felis quis tempus. In accumsan vestibulum volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p> -->
 </div> </a>
 {% endblock %}
 </html>
