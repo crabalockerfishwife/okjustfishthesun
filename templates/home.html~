@@ -46,7 +46,7 @@
   }
   p{
   font-size:250% ;
-  letter-spacing: 0em
+  letter-spacing: .1em
 }
   
   #map-canvas{
@@ -54,10 +54,9 @@
   padding:0px
   }
   #mainpage{
-  background-image: url(../static/nyc.jpg); background-color: #99FF99;  height:100%;
-  width:100%
+  background-image: url(../static/nyc.jpg); background-color: #99FF99;
   }
-  #button {background-color:yellow;color:black;letter-spacing:0em}
+  #button {background-color:yellow;color:black;letter-spacing:.1em}
   
   <!-- #panel { -->
   <!-- top: 5px; -->
