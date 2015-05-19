@@ -17,18 +17,10 @@ var types = ["food","recreation","communication","transportation"];
 
 var coordinates = [];
 
-var getcoords = function() {
-
+var getcoords = function(url) {
+    $.getJSON( url , function( json ) {
+	console.log( "JSON Data: " + json );
+    });
 }
 
-$.getJSON( "ajax/test.json", function( data ) {
-  var items = [];
-  $.each( data, function( key, val ) {
-    items.push( "<li id='" + key + "'>" + val + "</li>" );
-  });
- 
-  $( "<ul/>", {
-    "class": "my-new-list",
-    html: items.join( "" )
-  }).appendTo( "body" );
-});
+getcoords("https://data.cityofnewyork.us/api/views/jd4g-ks2z/rows.json?accessType=DOWNLOAD");
