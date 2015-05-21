@@ -5,23 +5,23 @@
 </head>
 <div class="pure-menu pure-menu-open pure-menu-horizontal" style="position:fixed">
   <a href="/" class="pure-menu-heading">ZPaths</a>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="/">Search</a>
-      <ul>
-        <li><a href="#heat">Subway Entrances</a></li>
-        <li><a href="#heat"></a>NYPD Motor Vehicle Collisions</li>
-	<li><a href="#heat"></a>Directory of Eateries</li>
-	<li><a href="#heat"></a>Manhattan Street Trees</li>
-	<li><a href="#heat"></a>Wifi Hotspots</li>
-	<li><a href="#heat"></a>Pay Phones</li>
-	<li><a href="#heat"></a>Museums and Galleries</li>
-	<li><a href="#heat"></a>Theaters</li>
-	<li><a href="#heat"></a>Fields</li>
-	<li><a href="#heat"></a>Swimming Pools</li>
-	<li><a href="#heat"></a>Beaches</li>
-	<li><a href="#heat"></a>Libraries</li>
+  <ul class="pure-menu-list">
+    <li class="pure-menu-item"><a href="/">Home</a></li>
+    <li class="pure-menu-item"><a href="#about">About</a></li>
+    <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover"><a href="/">Search</a>
+      <ul class="pure-menu-children">
+        <li class="pure-menu-item"><a href="#heat">Subway Entrances</a></li>
+        <li class="pure-menu-item"><a href="#heat"></a>NYPD Motor Vehicle Collisions</li>
+	<li class="pure-menu-item"><a href="#heat"></a>Directory of Eateries</li>
+	<li class="pure-menu-item"><a href="#heat"></a>Manhattan Street Trees</li>
+	<li class="pure-menu-item"><a href="#heat"></a>Wifi Hotspots</li>
+	<li class="pure-menu-item"><a href="#heat"></a>Pay Phones</li>
+	<li class="pure-menu-item"><a href="#heat"></a>Museums and Galleries</li>
+	<li class="pure-menu-item"><a href="#heat"></a>Theaters</li>
+	<li class="pure-menu-item"><a href="#heat"></a>Fields</li>
+	<li class="pure-menu-item"><a href="#heat"></a>Swimming Pools</li>
+	<li class="pure-menu-item"><a href="#heat"></a>Beaches</li>
+	<li class="pure-menu-item"><a href="#heat"></a>Libraries</li>
       </ul>
     </li>
   </ul>
@@ -50,6 +50,10 @@
   Home
   {% endblock %}
   {% block styling %}
+  html{
+  height:100%;
+  }
+
   body{
   position:absolute;
   top: 0; 
@@ -62,11 +66,15 @@
   letter-spacing: 0em
   }
   
+  #heatpage{
+  height:100%;
+  width:100%;
+  }
   #map-canvas{
   height:100%;
+  width:100%;
   margin:0px;
-  padding:0px;
-  display: inline-block
+  padding:0px
   }
   #mainpage{
   background-image: url(../static/nyc.jpg); background-color: #99FF99;
@@ -78,7 +86,7 @@
   
   
   {% endblock %}
-  
+    
   {% block script %}
   var logo;
   var svgdoc;
@@ -108,9 +116,7 @@
   };
 
   {% endblock %}
-
-  
-  {% block bodycontent %}
+{% block bodycontent %}
   <div id="mainpage">
     <center>
       <div class="splash-container">
@@ -124,8 +130,9 @@
     </center>
   </div>
 
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script>
-  <script src="../static/heat.js"> </script>
+<div id="heatpage" style:"height:100%">
+ <!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script> -->
+ <!--  <script src="../static/heat.js"> </script> -->
   <a name="heat">
     <div id="map-canvas" >
       <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices ligula at velit ultricies, in imperdiet nisi tempor. Duis a finibus augue, id facilisis sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam eget semper orci. Cras porta massa felis, in accumsan neque scelerisque interdum. Morbi a sagittis nunc. Mauris accumsan nulla et scelerisque porttitor. Nam sollicitudin euismod massa, et finibus orci pretium sit amet. Nullam porta neque fermentum, porttitor enim id, finibus erat. Nulla auctor nibh ut lectus malesuada pulvinar. Aliquam sollicitudin lorem mauris, vitae facilisis nisl mollis non. Proin blandit est eu odio ultrices convallis. Nulla blandit velit id sapien aliquet, vel tempus mi finibus. Morbi dictum, risus non porta consectetur, purus mauris bibendum sapien, eu pulvinar tellus nunc at velit. Quisque convallis turpis sapien, ac vestibulum nibh placerat at.
@@ -138,6 +145,9 @@
 
 	In malesuada dignissim lacus, a rhoncus nisl convallis nec. Quisque tincidunt faucibus dui, ut scelerisque felis pretium vel. Curabitur ullamcorper sed justo vel feugiat. Maecenas cursus turpis eleifend eleifend eleifend. Nullam blandit mauris eget ligula interdum bibendum. Aenean finibus tellus id ultricies ullamcorper. Morbi et nibh commodo, euismod mi id, lacinia turpis. Donec eu magna condimentum, finibus sapien lobortis, eleifend mauris. Praesent congue fermentum lectus a bibendum. Suspendisse porta venenatis pharetra. Vestibulum risus ligula, feugiat quis volutpat in, semper vitae ligula. Proin auctor non orci vitae imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur porta nec felis quis tempus. In accumsan vestibulum volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
   </div> </a>
+
+</div>
+
   <a name="about">
     <div id="apage">
       <p> THIS IS THE ABOUT PAGE. TO BE UPDATED....
