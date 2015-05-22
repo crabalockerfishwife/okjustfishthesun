@@ -4,30 +4,23 @@ var apis = {"Subway Entrances":"https://data.cityofnewyork.us/api/views/he7q-3hw
 		"NYPD Motor Vehicle Collisions":"https://data.cityofnewyork.us/api/views/h9gi-nx95/rows.json?accessType=DOWNLOAD",
 		"Directory of Eateries":"https://data.cityofnewyork.us/api/views/xx67-kt59/rows.json?accessType=DOWNLOAD",
 		"Manhattan Street Trees":"https://data.cityofnewyork.us/api/views/4eh7-xcm8/rows.json?accessType=DOWNLOAD",
-		"Wifi Hotspots":"https://data.cityofnewyork.us/api/views/jd4g-ks2z/rows.json?accessType=DOWNLOAD"};
+		"Wifi Hotspots":"https://data.cityofnewyork.us/api/views/jd4g-ks2z/rows.json?accessType=DOWNLOAD",
 //		"Pay Phones":"",
 //		"Museums and Galleries":"",
-//		"Theaters":"",
+		"Theaters":"https://data.cityofnewyork.us/api/views/2hzz-95k8/rows.json?accessType=DOWNLOAD",
 //		"Fields":"",
 //		"Swimming Pools":"",
 //		"Beaches":"",
-//		"Libraries":""];
+		"Libraries":"https://data.cityofnewyork.us/api/views/feuq-due4/rows.json?accessType=DOWNLOAD"
+        };
 
 var types = ["food","recreation","communication","transportation"];
 
 var coordinates = [];
 
-var map = function(l,f){
-    var result=[];
-    for (var i = 0; i < l.length; i++){
-        result.push(f(l[i]));
-    };
-    return result;
-};
-
 var getcoords = function(url) {
     $.getJSON( url , function( json ) {
-        coordinates = map(json.data,function(item){
+        coordinates = _.map(json.data,function(item){
           //console.log(item[13]);
           return item[13];
         });
