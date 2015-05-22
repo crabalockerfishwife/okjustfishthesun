@@ -29,6 +29,8 @@ Watch our demo video:
 - [JQuery](http://jquery.com/) for interactive form widgets  
 - [SQLite](http://www.sqlite.org/) for database storage  
 - [Google Places](https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete) for location autocompletion  
+- [lodash](https://lodash.com/) for map, filter, reduce functions  
+- [NYC Open Data](https://nycopendata.socrata.com/) for JSON data visualization  
 
 ## Contributors
 [Christina Ko](https://github.com/ChristinaKo): Backend - Google Heatmap Layers API  
@@ -38,16 +40,16 @@ Watch our demo video:
 
 ## Timeline
 - [X] 4/27: finalize project idea (all)
-- [ ] 4/29: search bar setup 
-- [ ] 5/1: return list with coordinates and travel times for walk/biking
-- [X] 5/3: test heatmap for walking/biking
+- [X] 4/29: gather links for JSON data from NYC Open Data
+- [X] 5/1: parse out coordinates and addresses
+- [X] 5/3: set up single page web app
 - [ ] 5/5: return list for transit/driving
-- [X] 5/7: test heatmap for transit/driving
+- [ ] 5/7: test heatmap for transit/driving
 - [ ] 5/9: tie up loose ends
 - [ ] 5/11: add ability to drop pinpoints onto map
-- [ ] 5/13: integrate with Google Login
+- [ ] 5/13: use D3 to make bar graphs by borough
 - [ ] 5/15: test, code review, add any additional features
-- [ ] 5/17: use D3 to make cool logo
+- [X] 5/17: use SVG to make cool logo
 - [X] 5/19: make Digital Ocean droplet
 - [ ] 5/21: shoot promo video
 - [ ] 5/23: edit promo video and post to YouTube
