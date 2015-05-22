@@ -6,22 +6,22 @@
 <div class="pure-menu pure-menu-open pure-menu-horizontal" style="position:fixed">
   <a href="/" class="pure-menu-heading">ZPaths</a>
   <ul class="pure-menu-list">
-    <li class="pure-menu-item"><a href="/">Home</a></li>
-    <li class="pure-menu-item"><a href="#about">About</a></li>
-    <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover"><a href="/">Search</a>
+    <li><a href="/">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#search">Search</a>
       <ul class="pure-menu-children">
-        <li class="pure-menu-item"><a href="#heat">Subway Entrances</a></li>
-        <li class="pure-menu-item"><a href="#heat"></a>NYPD Motor Vehicle Collisions</li>
-	<li class="pure-menu-item"><a href="#heat"></a>Directory of Eateries</li>
-	<li class="pure-menu-item"><a href="#heat"></a>Manhattan Street Trees</li>
-	<li class="pure-menu-item"><a href="#heat"></a>Wifi Hotspots</li>
-	<li class="pure-menu-item"><a href="#heat"></a>Pay Phones</li>
-	<li class="pure-menu-item"><a href="#heat"></a>Museums and Galleries</li>
-	<li class="pure-menu-item"><a href="#heat"></a>Theaters</li>
-	<li class="pure-menu-item"><a href="#heat"></a>Fields</li>
-	<li class="pure-menu-item"><a href="#heat"></a>Swimming Pools</li>
-	<li class="pure-menu-item"><a href="#heat"></a>Beaches</li>
-	<li class="pure-menu-item"><a href="#heat"></a>Libraries</li>
+        <li><a href="#heat">Subway Entrances</a></li>
+        <li><a href="#heat"></a>NYPD Motor Vehicle Collisions</li>
+	<li><a href="#heat"></a>Directory of Eateries</li>
+	<li><a href="#heat"></a>Manhattan Street Trees</li>
+	<li><a href="#heat"></a>Wifi Hotspots</li>
+	<li><a href="#heat"></a>Pay Phones</li>
+	<li><a href="#heat"></a>Museums and Galleries</li>
+	<li><a href="#heat"></a>Theaters</li>
+	<li><a href="#heat"></a>Fields</li>
+	<li><a href="#heat"></a>Swimming Pools</li>
+	<li><a href="#heat"></a>Beaches</li>
+	<li><a href="#heat"></a>Libraries</li>
       </ul>
     </li>
   </ul>
@@ -41,8 +41,7 @@
     {% endwith %}
     
     <div id="map"></div>
-    
-    <script src="../static/home.js"></script>
+
     
   </div>
   {% extends "base.html" %}
@@ -50,10 +49,6 @@
   Home
   {% endblock %}
   {% block styling %}
-  html{
-  height:100%;
-  }
-
   body{
   position:absolute;
   top: 0; 
@@ -70,23 +65,12 @@
   height:100%;
   width:100%;
   }
-  #map-canvas{
-  height:100%;
-  width:100%;
-  margin:0px;
-  padding:0px
-  }
   #mainpage{
   background-image: url(../static/nyc.jpg); background-color: #99FF99;
   height:100%;
   width:100%
   }
-  #button {background-color:yellow;color:black;letter-spacing:0em}
-  
-  
-  
   {% endblock %}
-    
   {% block script %}
   var logo;
   var svgdoc;
@@ -130,27 +114,17 @@
     </center>
   </div>
 
-<div id="heatpage" style:"height:100%">
- <!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script> -->
- <!--  <script src="../static/heat.js"> </script> -->
+<div id="heatpage" style:"height:100%; width:100%">
   <a name="heat">
-    <div id="map-canvas" >
-      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices ligula at velit ultricies, in imperdiet nisi tempor. Duis a finibus augue, id facilisis sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam eget semper orci. Cras porta massa felis, in accumsan neque scelerisque interdum. Morbi a sagittis nunc. Mauris accumsan nulla et scelerisque porttitor. Nam sollicitudin euismod massa, et finibus orci pretium sit amet. Nullam porta neque fermentum, porttitor enim id, finibus erat. Nulla auctor nibh ut lectus malesuada pulvinar. Aliquam sollicitudin lorem mauris, vitae facilisis nisl mollis non. Proin blandit est eu odio ultrices convallis. Nulla blandit velit id sapien aliquet, vel tempus mi finibus. Morbi dictum, risus non porta consectetur, purus mauris bibendum sapien, eu pulvinar tellus nunc at velit. Quisque convallis turpis sapien, ac vestibulum nibh placerat at.
+  <iframe height='100%' height='100%' src="/heat"></iframe>
 
-	Pellentesque feugiat sodales ante quis tristique. Praesent in dui turpis. Etiam ac augue tellus. Donec consectetur aliquet felis, eget condimentum augue sodales ut. Duis eget magna interdum erat varius facilisis. Curabitur imperdiet, nulla in gravida gravida, mauris velit dignissim est, at molestie nisl enim et ante. Etiam sed dui sed turpis venenatis accumsan. Etiam arcu sapien, aliquam tincidunt sagittis ut, vehicula ac odio. Phasellus enim libero, condimentum sit amet eleifend vitae, lacinia in dui. Donec vitae accumsan ipsum, sed scelerisque augue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam eu ornare nisi. Mauris quam libero, porttitor id mattis ut, lobortis ut lectus. Curabitur id nisi vulputate, fermentum enim nec, vehicula arcu. Mauris mi ex, malesuada ac orci vel, viverra dignissim metus. Interdum et malesuada fames ac ante ipsum primis in faucibus.
-
-	Suspendisse venenatis, libero a ultrices luctus, nibh elit bibendum ipsum, eu tempus quam turpis quis ex. Sed mollis est dui, id iaculis neque lacinia sed. Nunc lacinia justo eget malesuada bibendum. Vestibulum laoreet nunc nec ligula efficitur rhoncus. Fusce nec molestie nunc. Vivamus a luctus nibh, vehicula semper risus. Proin tellus erat, aliquam ut metus ultrices, fringilla gravida ipsum.
-
-	In hac habitasse platea dictumst. Nam tincidunt justo non dapibus tincidunt. Sed eget mauris porttitor, lobortis leo non, sagittis nibh. Nulla venenatis lacinia ex, a facilisis turpis varius imperdiet. Morbi massa felis, luctus quis semper in, pulvinar iaculis elit. Nunc pretium luctus risus, id auctor nibh auctor tincidunt. Quisque facilisis velit ac faucibus mattis. Phasellus nec arcu cursus, sagittis dolor vitae, consequat lorem. Phasellus a lacus vitae magna vestibulum vestibulum sed sed ligula. Cras pretium dui quis felis ultrices egestas. Suspendisse nec tellus vitae arcu pharetra mattis et vitae elit. Vestibulum venenatis rutrum ex ut cursus. Ut pellentesque felis velit, et ornare est porttitor eget. Integer ultricies augue quis pharetra finibus. Aliquam vitae magna nibh.
-
-	In malesuada dignissim lacus, a rhoncus nisl convallis nec. Quisque tincidunt faucibus dui, ut scelerisque felis pretium vel. Curabitur ullamcorper sed justo vel feugiat. Maecenas cursus turpis eleifend eleifend eleifend. Nullam blandit mauris eget ligula interdum bibendum. Aenean finibus tellus id ultricies ullamcorper. Morbi et nibh commodo, euismod mi id, lacinia turpis. Donec eu magna condimentum, finibus sapien lobortis, eleifend mauris. Praesent congue fermentum lectus a bibendum. Suspendisse porta venenatis pharetra. Vestibulum risus ligula, feugiat quis volutpat in, semper vitae ligula. Proin auctor non orci vitae imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur porta nec felis quis tempus. In accumsan vestibulum volutpat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-  </div> </a>
-
+  </a>
 </div>
 
   <a name="about">
     <div id="apage">
       <p> THIS IS THE ABOUT PAGE. TO BE UPDATED....
+	
       </p>
     </div>
   </a>
