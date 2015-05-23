@@ -505,6 +505,25 @@ var taxiData = [
     new google.maps.LatLng(37.751266, -122.403355)
 ];
 
+var convertTo=function(result){
+    var geocoder=new google.maps.Geocoder();
+    var ltlng=[];
+    for (i=0;i<result.length;i++){
+	geocoder.geocode( { 'address': result[i]}, function(results, status) {
+	    if (status == google.maps.GeocoderStatus.OK) {
+		var pos=results[0].geometry.location;
+		console.log(pos[A]);
+		ltlng.push(results[0].geometry.location);
+	    }
+	    else {
+		alert('Geocode was not successful for the following reason: ' + status);
+	    }
+	});
+    }
+    console.log(ltlng);
+    return ltlng;
+}
+
 
 var createMap = function (results){
     console.log(results);
