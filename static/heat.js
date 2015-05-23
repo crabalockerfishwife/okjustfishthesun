@@ -504,6 +504,30 @@ var taxiData = [
     new google.maps.LatLng(37.752986, -122.403112),
     new google.maps.LatLng(37.751266, -122.403355)
 ];
+var createMarker=function(pos){
+    marker = new google.maps.Marker({
+	map: map,
+	position: pos
+    });
+    marker.setMap(map);
+}
+
+var convertTo=function(result){
+    var geocoder=new google.maps.Geocoder();
+    for (i=0;i<result.length;i++){
+	geocoder.geocode( { 'address': result[i]}, function(results, status) {
+	    if (status == google.maps.GeocoderStatus.OK) {
+		var pos=results[0].geometry.location;
+		console.log(results[0].geometry.location);
+		createMarker(pos);
+	    }
+	    else {
+		alert('Geocode was not successful for the following reason: ' + status);
+	    }
+	});
+    }
+    map.setCenter(new google.maps.LatLng(40.788109,-73.7799506))
+}
 
 
 var createMap = function (results){
@@ -526,7 +550,7 @@ function initialize() {
 
     map = new google.maps.Map(document.getElementById('map-canvas'),
 			      mapOptions);
-    console.log(taxiData);
+    //console.log(taxiData);
     // var pointArray = new google.maps.MVCArray(createMap(ExData));
     var pointArray = new google.maps.MVCArray(taxiData);
     heatmap = new google.maps.visualization.HeatmapLayer({
