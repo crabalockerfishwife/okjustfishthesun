@@ -5,31 +5,45 @@ var apis = {"Subway Entrances":"https://data.cityofnewyork.us/api/views/he7q-3hw
 		"NYPD Motor Vehicle Collisions":"https://data.cityofnewyork.us/api/views/h9gi-nx95/rows.json?accessType=DOWNLOAD",
 		"Directory of Eateries":"https://data.cityofnewyork.us/api/views/xx67-kt59/rows.json?accessType=DOWNLOAD",
 		"Manhattan Street Trees":"https://data.cityofnewyork.us/api/views/4eh7-xcm8/rows.json?accessType=DOWNLOAD",
-		"Wifi Hotspots":"https://data.cityofnewyork.us/api/views/jd4g-ks2z/rows.json?accessType=DOWNLOAD"};
+		"Wifi Hotspots":"https://data.cityofnewyork.us/api/views/jd4g-ks2z/rows.json?accessType=DOWNLOAD",
 //		"Pay Phones":"",
 //		"Museums and Galleries":"",
-//		"Theaters":"",
+		"Theaters":"https://data.cityofnewyork.us/api/views/2hzz-95k8/rows.json?accessType=DOWNLOAD",
 //		"Fields":"",
 //		"Swimming Pools":"",
 //		"Beaches":"",
-//		"Libraries":""];
+		"Libraries":"https://data.cityofnewyork.us/api/views/feuq-due4/rows.json?accessType=DOWNLOAD"
+        };
 
 var types = ["food","recreation","communication","transportation"];
 
-var coordinates = [];
 
-var getcoords = function(url) {
-    $.getJSON( url , function( json ) {
-        coordinates = _.map(json.data,function(item){
-          //console.log(item[13]);
-          return item[13];
-        });
-	      console.log( coordinates );
-    });
+
+
+
+
+// $.getJSON( url , function( json ) {
+    // 	coordinates=_.map(json.data,function(item){
+    //         return item[13];
+    // 	});
+    // 	return coordinates;
+    // }); 
+
+var makeltlng=function(exa){
+    var cds=[];
+    console.log(exa);
+    for (i=0;i<exa.length;i++){
+	cds.push(new google.maps.LatLng(exa[i][0],exa[i][1]));
+    }
+    console.log(cds);
+    return cds;
+
 }
+	
 var convertTo=function(result){
     var geocoder=new google.maps.Geocoder();
     coords=[];
+    console.log(result[0]);
     for (i=0;i<result.length;i++){
 	geocoder.geocode( { 'address': result[i]}, function(results, status) {
 	    if (status == google.maps.GeocoderStatus.OK) {
@@ -39,6 +53,7 @@ var convertTo=function(result){
 	    }
 	    else {
 		i=i+1;
+		console.log("not ok");
 	    }
 	});
     }
@@ -46,42 +61,47 @@ var convertTo=function(result){
 }
 
 
-var createMap = function (results){
-    console.log(results);
-    var heatMapData = [];
-    for (i=0; i< results.length; i ++){
-	heatMapData.push({location: new google.maps.LatLng(results[i][0],results[i][1]), weight: results[i][2]})};
-    console.log(heatMapData);
-    return heatMapData;
-}
 //limit zoom 
 function initialize() {
-    console.log("INITIALIZED");
     var mapOptions = {
-	zoom: 13,
-	center: new google.maps.LatLng(40.77,73.98),
-	minZoom: 12,
-	maxZoom: 17
+	zoom: 10,
+	center: new google.maps.LatLng(40.788109,-73.7799506),
     };
-
     map = new google.maps.Map(document.getElementById('map-canvas'),
 			      mapOptions);
-    var pointArray = new google.maps.MVCArray(convertTo(items));
-    var pointArray = new google.maps.MVCArray(taxiData);
-    heatmap = new google.maps.visualization.HeatmapLayer({
-	data: pointArray
-    });
-    var gradient = [
-	'rgba(0,255,255,0)',
-	'rgba(0,255,255,1)',
-	'rgba(0,255,0,1)',
-	'rgba(255,255,0,1)',
-	'rgba(255,165,0,1)',
-	'rgba(255,69,0,1)',
-	'rgba(255,0,0,1)'
-    ]
-    heatmap.setMap(map);
-    heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+    var coords=[]
+    var request=new XMLHttpRequest();
+    request.open('GET', 'https://data.cityofnewyork.us/api/views/jd4g-ks2z/rows.json?accessType=DOWNLOAD', true);
+    request.onload = function() {
+	if (request.status >= 200 && request.status < 400) {
+	    var data = JSON.parse(request.responseText);
+	    var dats=data['data']
+	    for (i=0;i<dats.length;i++){
+		var latlng=[dats[i][14],dats[i][15]];
+		coords.push(latlng);
+	    }
+	    var pointArray = new google.maps.MVCArray(makeltlng(coords));
+	    heatmap = new google.maps.visualization.HeatmapLayer({
+		data: pointArray
+	    });
+	    var gradient = [
+		'rgba(0,255,255,0)',
+	    'rgba(0,255,255,1)',
+		'rgba(0,255,0,1)',
+		'rgba(255,255,0,1)',
+		'rgba(255,165,0,1)',
+		'rgba(255,69,0,1)',
+		'rgba(255,0,0,1)'
+	    ]
+	    heatmap.setMap(map);
+	    heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+	}
+	else{
+	    console.log('uhoh');
+	}
+    }
+    request.send();
+    
 }
 
 function toggleHeatmap() {
