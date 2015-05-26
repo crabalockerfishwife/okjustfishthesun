@@ -63,11 +63,15 @@
   
   #heatpage{
   height:100%;
-  width:100%;
+  width:100%
   }
   #mainpage{
   background-image: url(../static/nyc.jpg); background-color: #99FF99;
   height:100%;
+  width:100%
+  }
+  iframe{
+  height:600px;
   width:100%
   }
   {% endblock %}
@@ -114,17 +118,23 @@
     </center>
   </div>
 
-<div id="heatpage" style:"height:100%; width:100%">
+
+<div id="heatpage" style="height:100%; width:100%">
+  <br><br><center>
   <a name="heat">
-  <iframe height='100%' height='100%' src="/heat"></iframe>
-
+  <iframe  src="/heat"></iframe>
   </a>
+</center>
 </div>
-
+<br>
   <a name="about">
     <div id="apage">
-      <p> THIS IS THE ABOUT PAGE. TO BE UPDATED....
-	
+      <p> 
+	About
+	<br>
+	<br>
+	Zpaths is a website designed to display datasets for various datasets.
+	Created by Christina Ko, Justin Strauss, Fish Milnikiewicz, and Sunnam Quispe. 
       </p>
     </div>
   </a>
