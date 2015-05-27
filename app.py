@@ -9,9 +9,9 @@ app=Flask(__name__)
 def index():
     return render_template("home.html")
 
-@app.route("/heat")
-def heat():
-    return render_template("heat.html")
+# @app.route("/heat")
+# def heat():
+#     return render_template("heat.html")
 
 if __name__ == "__main__":
    app.debug = True
