@@ -1,3 +1,4 @@
+
 var map, pointarray, heatmap;
 console.log("IN HEAT");
 
@@ -35,21 +36,53 @@ var makeltlng=function(exa){
 var convertTo=function(result){
     var geocoder=new google.maps.Geocoder();
     coords=[];
-    console.log(result[0]);
-    for (i=0;i<result.length;i++){
-	geocoder.geocode( { 'address': result[i]}, function(results, status) {
-	    if (status == google.maps.GeocoderStatus.OK) {
-		var pos=results[0].geometry.location;
-		console.log(results[0].geometry.location);
-		coords.push(pos);
+    console.log(result);
+    geocoder.geocode( { 'address': result}, function(results, status) {
+	if (status == google.maps.GeocoderStatus.OK) {
+	    var pos=results.geometry.location;
+	    console.log(results.geometry.location);
+	    coords.push(pos);
+	}
+	else {
+	    console.log("not ok");
+	}
+}
+return coords;
+}
+var getSubways=function(){
+    var coords=[]
+    var request=new XMLHttpRequest();
+    request.open('GET','https://data.cityofnewyork.us/api/views/he7q-3hwy/rows.json?accessType=DOWNLOAD' , true);
+    request.onload = function() {
+	if (request.status >= 200 && request.status < 400) {
+	    var data = JSON.parse(request.responseText);
+	    var dats=data['data']
+	    for (i=0;i<dats.length;i++){
+		var add=dats[i][9];
+		varltlng=convertTo(add);
+		coords.push(latlng);
 	    }
-	    else {
-		i=i+1;
-		console.log("not ok");
-	    }
-	});
+	    var pointArray = new google.maps.MVCArray(makeltlng(coords));
+	    heatmap = new google.maps.visualization.HeatmapLayer({
+		data: pointArray
+	    });
+	    var gradient = [
+		'rgba(0,255,255,0)',
+		'rgba(0,255,255,1)',
+		'rgba(0,255,0,1)',
+		'rgba(255,255,0,1)',
+		'rgba(255,165,0,1)',
+		'rgba(255,69,0,1)',
+		'rgba(255,0,0,1)'
+	    ]
+	    heatmap.setMap(map);
+	    heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+	}
+	else{
+	    console.log('uhoh');
+	}
     }
-    return coords;
+    request.send();
 }
 
 var getWifi=function(){
@@ -94,7 +127,6 @@ function initialize() {
     map = new google.maps.Map(document.getElementById('map-canvas'),
 			      mapOptions);
     getWifi();
- 
 }
 
 function toggleHeatmap() {
