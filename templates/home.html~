@@ -8,8 +8,22 @@
   <ul class="pure-menu-list">
     <li><a href="/">Home</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#search">Search</a>
-      </li>
+    <li><a href="#heat">Search</a>
+      <ul class="pure-menu-children">
+        <li><a href="#heat">Subway Entrances</a></li>
+        <li><a href="#heat"></a>NYPD Motor Vehicle Collisions</li>
+	<li><a href="#heat"></a>Directory of Eateries</li>
+	<li><a href="#heat"></a>Manhattan Street Trees</li>
+	<li><a href="#heat"></a>Wifi Hotspots</li>
+	<li><a href="#heat"></a>Pay Phones</li>
+	<li><a href="#heat"></a>Museums and Galleries</li>
+	<li><a href="#heat"></a>Theaters</li>
+	<li><a href="#heat"></a>Fields</li>
+	<li><a href="#heat"></a>Swimming Pools</li>
+	<li><a href="#heat"></a>Beaches</li>
+	<li><a href="#heat"></a>Libraries</li>
+      </ul>
+    </li>
   </ul>
 </div>
 <div class="pure-g">
@@ -50,17 +64,6 @@
   #heatpage{
   height:100%;
   width:100%
-  }
-  #apage{
-  height:100%;
-  color:gray;
-  font-size: 8px;
-  text-align: center;
-  margin: 100px 100px;
-  }
-  #about{
-  font-size:24px;
-  color:black;
   }
   #mainpage{
   background-image: url(../static/nyc.jpg); background-color: #99FF99;
@@ -109,21 +112,10 @@
           <h1 class="splash-head">
 	    <object id="logo" data="../static/logo.svg" type="image/svg+xml"></object>
 	  </h1>
-	  <a name="search">
-	<select>
-	  <option value="subway">Subway Entraces</option>
-	  <option value="collisions">Motor Vehicle
-	Collisions</option>
-	  <options vlaue="foods">Directory of Eateries</option>
-	  <option value="hotspots">Wifi Hotspots</option>
-	  <option value="Theaters">Theaters</option>
-	  <option value="Libraries">Libraries</option>
-	    </select> </a>
-	    <br><br>
-	    <input type="submit">
+
+	</div>
       </div>
-      </div>
-      </center>
+    </center>
   </div>
 
 
@@ -138,11 +130,10 @@
   <a name="about">
     <div id="apage">
       <p> 
-	<text id="about">About</text>
+	About
 	<br>
 	<br>
-	ZPaths is here to help you with your everyday New Yorker needs. Upon entering our site, you are given 10+ options to choose from for points of interest in the city: from subway entrances, to museums and galleries. We then return a heat map that displays the best areas in New York City to find those points of interest, as well as a bar graph displaying how common these ameneties are in each borough.
-	<br><br>
+	Zpaths is a website designed to display datasets for various datasets.
 	Created by Christina Ko, Justin Strauss, Fish Milnikiewicz, and Sunnam Quispe. 
       </p>
     </div>
