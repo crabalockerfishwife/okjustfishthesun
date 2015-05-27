@@ -16,7 +16,7 @@ var apis = {"Subway Entrances":"https://data.cityofnewyork.us/api/views/he7q-3hw
 
 var types = ["food","recreation","communication","transportation"];
 
-var coordinates = [];
+var coordinates = ["hi"];
 
 var getcoords = function(url) {
     $.getJSON( url , function( json ) {
@@ -26,6 +26,7 @@ var getcoords = function(url) {
         });
 	      console.log( coordinates );
     });
+    console.log(coordinates);
 }
 
 getcoords("https://data.cityofnewyork.us/api/views/jd4g-ks2z/rows.json?accessType=DOWNLOAD");
