@@ -14,20 +14,13 @@ var apis = {"Subway Entrances":"https://data.cityofnewyork.us/api/views/he7q-3hw
 //		"Beaches":"",
 		"Libraries":"https://data.cityofnewyork.us/api/views/feuq-due4/rows.json?accessType=DOWNLOAD"
         };
+//Subway-->addresses
+//wifi hotspots -->latlng (14,15)
+//motor vehicle --> latlng (12,13)
+//libraries --> addresses
+//theaters --> addresses
 
 var types = ["food","recreation","communication","transportation"];
-
-
-
-
-
-
-// $.getJSON( url , function( json ) {
-    // 	coordinates=_.map(json.data,function(item){
-    //         return item[13];
-    // 	});
-    // 	return coordinates;
-    // }); 
 
 var makeltlng=function(exa){
     var cds=[];
@@ -37,7 +30,6 @@ var makeltlng=function(exa){
     }
     console.log(cds);
     return cds;
-
 }
 	
 var convertTo=function(result){
@@ -60,18 +52,10 @@ var convertTo=function(result){
     return coords;
 }
 
-
-//limit zoom 
-function initialize() {
-    var mapOptions = {
-	zoom: 10,
-	center: new google.maps.LatLng(40.788109,-73.7799506),
-    };
-    map = new google.maps.Map(document.getElementById('map-canvas'),
-			      mapOptions);
+var getWifi=function(){
     var coords=[]
     var request=new XMLHttpRequest();
-    request.open('GET', 'https://data.cityofnewyork.us/api/views/jd4g-ks2z/rows.json?accessType=DOWNLOAD', true);
+    request.open('GET','https://data.cityofnewyork.us/api/views/jd4g-ks2z/rows.json?accessType=DOWNLOAD' , true);
     request.onload = function() {
 	if (request.status >= 200 && request.status < 400) {
 	    var data = JSON.parse(request.responseText);
@@ -101,7 +85,16 @@ function initialize() {
 	}
     }
     request.send();
-    
+}
+function initialize() {
+    var mapOptions = {
+	zoom: 10,
+	center: new google.maps.LatLng(40.788109,-73.7799506),
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'),
+			      mapOptions);
+    getWifi();
+ 
 }
 
 function toggleHeatmap() {
