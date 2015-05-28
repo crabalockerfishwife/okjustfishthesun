@@ -25,32 +25,35 @@ var types = ["food","recreation","communication","transportation"];
 
 var makeltlng=function(exa){
     var cds=[];
-    console.log(exa);
+    //console.log(exa);
     for (i=0;i<exa.length;i++){
 	cds.push(new google.maps.LatLng(exa[i][0],exa[i][1]));
     }
-    console.log(cds);
+    //console.log(cds);
     return cds;
 }
 	
 var convertTo=function(result){
     var geocoder=new google.maps.Geocoder();
-    coords=[];
-    console.log(result);
-    geocoder.geocode( { 'address': result}, function(results, status) {
+    var coords=[];
+    //console.log(result);
+    for (i=0;i<result.length;i++){
+    geocoder.geocode( { 'address': result[i]}, function(results, status) {
 	if (status == google.maps.GeocoderStatus.OK) {
-	    var pos=results.geometry.location;
-	    console.log(results.geometry.location);
+	    var pos=results[0].geometry.location;
+	    console.log(results[0].geometry.location);
 	    coords.push(pos);
 	}
 	else {
-	    console.log("not ok");
+	    console.log('no');
 	}
-}
-return coords;
+    });
+	return coords;
+    }
 }
 var getSubways=function(){
-    var coords=[]
+    var coords=[];
+    var adds=[];
     var request=new XMLHttpRequest();
     request.open('GET','https://data.cityofnewyork.us/api/views/he7q-3hwy/rows.json?accessType=DOWNLOAD' , true);
     request.onload = function() {
@@ -59,9 +62,13 @@ var getSubways=function(){
 	    var dats=data['data']
 	    for (i=0;i<dats.length;i++){
 		var add=dats[i][9];
-		varltlng=convertTo(add);
-		coords.push(latlng);
+		if (add.indexOf("(")==-1){
+		    adds.push(add);
+		}
 	    }
+	    console.log(adds);
+	    // coords=convertTo(adds);
+	    // console.log(coords);
 	    var pointArray = new google.maps.MVCArray(makeltlng(coords));
 	    heatmap = new google.maps.visualization.HeatmapLayer({
 		data: pointArray
@@ -126,7 +133,7 @@ function initialize() {
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
 			      mapOptions);
-    getSubways();
+    getWifi();
 }
 
 function toggleHeatmap() {
