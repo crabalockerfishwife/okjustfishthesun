@@ -1,4 +1,3 @@
-
 var map, pointarray, heatmap;
 console.log("IN HEAT");
 var apis = {"Subway Entrances":"https://data.cityofnewyork.us/api/views/he7q-3hwy/rows.json?accessType=DOWNLOAD",
@@ -28,7 +27,7 @@ var makeltlng=function(exa){
     for (i=0;i<exa.length;i++){
 	cds.push(new google.maps.LatLng(exa[i][0],exa[i][1]));
     }
-    //console.log(cds);
+    console.log(cds);
     return cds;
 }
 	
@@ -61,10 +60,10 @@ var getMVA=function(){
 	    var data = JSON.parse(request.responseText);
 	    var dats=data['data']
 	    for (i=0;i<dats.length;i++){
-		var latlng=[dats[i][14],dats[i][15]];
-		coords.push(latlng);
+		var latlng=[dats[i][12],dats[i][13]];
+		adds.push(latlng);
 	    }
-	    var pointArray = new google.maps.MVCArray(coords);
+	    var pointArray = new google.maps.MVCArray(makeltlng(adds));
 	    heatmap = new google.maps.visualization.HeatmapLayer({
 		data: pointArray
 	    });
@@ -99,7 +98,7 @@ var getWifi=function(){
 		var latlng=[dats[i][14],dats[i][15]];
 		coords.push(latlng);
 	    }
-	    var pointArray = new google.maps.MVCArray(coords);
+	    var pointArray = new google.maps.MVCArray(makeltlng(coords));
 	    heatmap = new google.maps.visualization.HeatmapLayer({
 		data: pointArray
 	    });
@@ -128,7 +127,7 @@ function initialize() {
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
 			      mapOptions);
-    getWifi();
+    getMVA();
 }
 
 function toggleHeatmap() {
