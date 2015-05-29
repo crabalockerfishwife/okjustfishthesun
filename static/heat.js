@@ -1,7 +1,5 @@
-
 var map, pointarray, heatmap;
 console.log("IN HEAT");
-
 var apis = {"Subway Entrances":"https://data.cityofnewyork.us/api/views/he7q-3hwy/rows.json?accessType=DOWNLOAD",
 		"NYPD Motor Vehicle Collisions":"https://data.cityofnewyork.us/api/views/h9gi-nx95/rows.json?accessType=DOWNLOAD",
 		"Directory of Eateries":"https://data.cityofnewyork.us/api/views/xx67-kt59/rows.json?accessType=DOWNLOAD",
@@ -25,7 +23,7 @@ var types = ["food","recreation","communication","transportation"];
 
 var makeltlng=function(exa){
     var cds=[];
-    console.log(exa);
+    //console.log(exa);
     for (i=0;i<exa.length;i++){
 	cds.push(new google.maps.LatLng(exa[i][0],exa[i][1]));
     }
@@ -35,34 +33,37 @@ var makeltlng=function(exa){
 	
 var convertTo=function(result){
     var geocoder=new google.maps.Geocoder();
-    coords=[];
-    console.log(result);
-    geocoder.geocode( { 'address': result}, function(results, status) {
-	if (status == google.maps.GeocoderStatus.OK) {
-	    var pos=results.geometry.location;
-	    console.log(results.geometry.location);
-	    coords.push(pos);
-	}
-	else {
-	    console.log("not ok");
-	}
+    var coords=[];
+    //console.log(result);
+    for (i=0;i<result.length;i++){
+	geocoder.geocode( { 'address': result[i]}, function(results, status) {
+	    if (status == google.maps.GeocoderStatus.OK) {
+		var pos=results[0].geometry.location;
+		console.log(result[i]);
+		console.log(pos);
+		coords.push(pos);
+	    }
+	    else {
+		console.log('no');
+	    }
+	});
+    }
+    console.log(coords);
+    return coords;
 }
-return coords;
-}
-var getSubways=function(){
-    var coords=[]
+var getMVA=function(){
+    var adds=[];
     var request=new XMLHttpRequest();
-    request.open('GET','https://data.cityofnewyork.us/api/views/he7q-3hwy/rows.json?accessType=DOWNLOAD' , true);
+    request.open('GET','https://data.cityofnewyork.us/api/views/h9gi-nx95/rows.json?accessType=DOWNLOAD' , true);
     request.onload = function() {
 	if (request.status >= 200 && request.status < 400) {
 	    var data = JSON.parse(request.responseText);
 	    var dats=data['data']
 	    for (i=0;i<dats.length;i++){
-		var add=dats[i][9];
-		varltlng=convertTo(add);
-		coords.push(latlng);
+		var latlng=[dats[i][12],dats[i][13]];
+		adds.push(latlng);
 	    }
-	    var pointArray = new google.maps.MVCArray(makeltlng(coords));
+	    var pointArray = new google.maps.MVCArray(makeltlng(adds));
 	    heatmap = new google.maps.visualization.HeatmapLayer({
 		data: pointArray
 	    });
@@ -88,7 +89,7 @@ var getSubways=function(){
 var getWifi=function(){
     var coords=[]
     var request=new XMLHttpRequest();
-    request.open('GET','https://data.cityofnewyork.us/api/views/jd4g-ks2z/rows.json?accessType=DOWNLOAD' , true);
+    request.open('GET','https://data.cityofnewyork.us/api/views/jd4g-ks2z/rows.json?accessType=DOWNLOAD', true);
     request.onload = function() {
 	if (request.status >= 200 && request.status < 400) {
 	    var data = JSON.parse(request.responseText);
@@ -103,7 +104,7 @@ var getWifi=function(){
 	    });
 	    var gradient = [
 		'rgba(0,255,255,0)',
-	    'rgba(0,255,255,1)',
+		'rgba(0,255,255,1)',
 		'rgba(0,255,0,1)',
 		'rgba(255,255,0,1)',
 		'rgba(255,165,0,1)',
@@ -126,7 +127,7 @@ function initialize() {
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
 			      mapOptions);
-    getSubways();
+    getMVA();
 }
 
 function toggleHeatmap() {
