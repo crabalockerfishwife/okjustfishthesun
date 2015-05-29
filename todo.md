@@ -2,3 +2,4 @@
 - [ ] attempt function maker
 - [ ] add heatmap title
 - [ ] rearrange order of divs
+- [ ] get rid of console.logs
