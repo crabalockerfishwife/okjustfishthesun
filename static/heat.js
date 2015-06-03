@@ -5,19 +5,9 @@ var apis = {"Subway Entrances":"https://data.cityofnewyork.us/api/views/he7q-3hw
 		"Directory of Eateries":"https://data.cityofnewyork.us/api/views/xx67-kt59/rows.json?accessType=DOWNLOAD",
 		"Manhattan Street Trees":"https://data.cityofnewyork.us/api/views/4eh7-xcm8/rows.json?accessType=DOWNLOAD",
 		"Wifi Hotspots":"https://data.cityofnewyork.us/api/views/jd4g-ks2z/rows.json?accessType=DOWNLOAD",
-//		"Pay Phones":"",
-//		"Museums and Galleries":"",
 		"Theaters":"https://data.cityofnewyork.us/api/views/2hzz-95k8/rows.json?accessType=DOWNLOAD",
-//		"Fields":"",
-//		"Swimming Pools":"",
-//		"Beaches":"",
 		"Libraries":"https://data.cityofnewyork.us/api/views/feuq-due4/rows.json?accessType=DOWNLOAD"
         };
-//Subway-->addresses
-//wifi hotspots -->latlng (14,15)
-//motor vehicle --> latlng (12,13)
-//libraries --> addresses
-//theaters --> addresses
 
 var types = ["food","recreation","communication","transportation"];
 
@@ -27,7 +17,7 @@ var makeltlng=function(exa){
     for (i=0;i<exa.length;i++){
 	cds.push(new google.maps.LatLng(exa[i][0],exa[i][1]));
     }
-    console.log(cds);
+   // console.log(cds);
     return cds;
 }
 	
@@ -122,8 +112,8 @@ var getWifi=function(){
 }
 function initialize() {
     var mapOptions = {
-	zoom: 10,
-	center: new google.maps.LatLng(40.788109,-73.7799506),
+	zoom: 13,
+	center: new google.maps.LatLng(40.7142700,-74.0059700),
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
 			      mapOptions);
