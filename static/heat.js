@@ -44,19 +44,54 @@ var convertTo=function(addresses){
     console.log(coords);
     return coords;
 }
-var getTheaters=function(){
-    var adds=[];
+// var getTheaters=function(){
+//     var adds=[];
+//     var request=new XMLHttpRequest();
+//     request.open('GET','https://data.cityofnewyork.us/api/views/2hzz-95k8/rows.json?accessType=DOWNLOAD', true);
+//      request.onload = function() {
+// 	if (request.status >= 200 && request.status < 400) {
+// 	    var data = JSON.parse(request.responseText);
+// 	    var dats=data['data']
+// 	    for (i=0;i<dats.length;i++){
+// 		adds.push(dats[i][11]);
+// 	    }
+// 	    var ltlng=convertTo(adds);
+// 	    var pointArray = new google.maps.MVCArray(ltlng);
+// 	    heatmap = new google.maps.visualization.HeatmapLayer({
+// 		data: pointArray
+// 	    });
+// 	    var gradient = [
+// 		'rgba(0,255,255,0)',
+// 		'rgba(0,255,255,1)',
+// 		'rgba(0,255,0,1)',
+// 		'rgba(255,255,0,1)',
+// 		'rgba(255,165,0,1)',
+// 		'rgba(255,69,0,1)',
+// 		'rgba(255,0,0,1)'
+// 	    ]
+// 	    heatmap.setMap(map);
+// 	    heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+// 	}
+// 	else{
+// 	    console.log('uhoh');
+// 	}
+//     }
+//     request.send();
+// }
+
+var getHospitals=function(){
+    var coords=[]
     var request=new XMLHttpRequest();
-    request.open('GET','https://data.cityofnewyork.us/api/views/2hzz-95k8/rows.json?accessType=DOWNLOAD', true);
-     request.onload = function() {
+    request.open('GET','https://data.cityofnewyork.us/api/views/ymhw-9cz9/rows.json?accessType=DOWNLOAD', true);
+    request.onload = function() {
 	if (request.status >= 200 && request.status < 400) {
 	    var data = JSON.parse(request.responseText);
 	    var dats=data['data']
 	    for (i=0;i<dats.length;i++){
-		adds.push(dats[i][11]);
+		var latlng=[dats[i][13][1],dats[i][13][2]];
+		coords.push(latlng);
 	    }
-	    var ltlng=convertTo(adds);
-	    var pointArray = new google.maps.MVCArray(makeltlng(ltlng));
+	    var pointArray = new google.maps.MVCArray(makeltlng(coords));
 	    heatmap = new google.maps.visualization.HeatmapLayer({
 		data: pointArray
 	    });
@@ -78,7 +113,75 @@ var getTheaters=function(){
     }
     request.send();
 }
-    
+var getQLibraries=function(){
+    var coords=[]
+    var request=new XMLHttpRequest();
+    request.open('GET','https://data.cityofnewyork.us/api/views/kh3d-xhq7/rows.json?accessType=DOWNLOAD', true);
+    request.onload = function() {
+	if (request.status >= 200 && request.status < 400) {
+	    var data = JSON.parse(request.responseText);
+	    var dats=data['data']
+	    for (i=0;i<dats.length;i++){
+		var latlng=[dats[i][18][1],dats[i][18][2]];
+		coords.push(latlng);
+	    }
+	    var pointArray = new google.maps.MVCArray(makeltlng(coords));
+	    heatmap = new google.maps.visualization.HeatmapLayer({
+		data: pointArray
+	    });
+	    var gradient = [
+		'rgba(0,255,255,0)',
+		'rgba(0,255,255,1)',
+		'rgba(0,255,0,1)',
+		'rgba(255,255,0,1)',
+		'rgba(255,165,0,1)',
+		'rgba(255,69,0,1)',
+		'rgba(255,0,0,1)'
+	    ]
+	    heatmap.setMap(map);
+	    heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+	}
+	else{
+	    console.log('uhoh');
+	}
+    }
+    request.send();
+}
+var getVolunteer=function(){
+    var coords=[]
+    var request=new XMLHttpRequest();
+    request.open('GET','https://data.cityofnewyork.us/api/views/bquu-z2ht/rows.json?accessType=DOWNLOAD', true);
+    request.onload = function() {
+	if (request.status >= 200 && request.status < 400) {
+	    var data = JSON.parse(request.responseText);
+	    var dats=data['data']
+	    for (i=0;i<dats.length;i++){
+		var latlng=[dats[i][23][1],dats[i][23][2]];
+		coords.push(latlng);
+	    }
+	    var pointArray = new google.maps.MVCArray(makeltlng(coords));
+	    heatmap = new google.maps.visualization.HeatmapLayer({
+		data: pointArray
+	    });
+	    var gradient = [
+		'rgba(0,255,255,0)',
+		'rgba(0,255,255,1)',
+		'rgba(0,255,0,1)',
+		'rgba(255,255,0,1)',
+		'rgba(255,165,0,1)',
+		'rgba(255,69,0,1)',
+		'rgba(255,0,0,1)'
+	    ]
+	    heatmap.setMap(map);
+	    heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+	}
+	else{
+	    console.log('uhoh');
+	}
+    }
+    request.send();
+}
+
 var getMVA=function(){
     var adds=[];
     var request=new XMLHttpRequest();
@@ -151,15 +254,11 @@ var getWifi=function(){
 function initialize() {
     var mapOptions = {
 	zoom: 13,
-<<<<<<< HEAD
-	center: new google.maps.LatLng(40.788109,-73.7799506),
-=======
-	center: new google.maps.LatLng(40.7142700,-74.0059700),
->>>>>>> ad3168569097f61d8a4a1ae1411a459b643e760a
+	center: new google.maps.LatLng(40.7142700,-74.0059700)
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
 			      mapOptions);
-    getTheaters();
+    getVolunteer();
 }
 
 function toggleHeatmap() {
