@@ -6,12 +6,14 @@
 <div class="pure-menu pure-menu-open pure-menu-horizontal" style="position:fixed">
   <a href="/" class="pure-menu-heading">ZPaths</a>
   <ul class="pure-menu-list">
-    <li><a href="/">Home</a></li>
+    <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#search">Search</a>
+    <li><a href="#heatmap">Heatmap</a>
       </li>
   </ul>
 </div>
+
 <div class="pure-g">
   <div class="pure-u-1-5"></div>
   <div class="pure-u-3-5">
@@ -26,10 +28,9 @@
     {% endif %}
     {% endwith %}
     
-    <div id="map"></div>
-
-    
   </div>
+  </div>
+
   {% extends "base.html" %}
   {% block title %}
   ZPaths
@@ -101,33 +102,36 @@
   };
 
   {% endblock %}
+
 {% block bodycontent %}
   <div id="mainpage">
+  <a name="home">
     <center>
-      <div class="splash-container">
-	<div class="splash">
-          <h1 class="splash-head">
-	    <object id="logo" data="../static/logo.svg" type="image/svg+xml"></object>
-	  </h1>
-	  <a name="search">
-	<select>
-	  <option id="subway">Subway Entraces</option>
-	  <option id="collisions">Motor Vehicle
-	Collisions</option>
-	  <options id="foods">Directory of Eateries</option>
-	  <option id="wifi">Wifi Hotspots</option>
-	  <option id="Theaters">Theaters</option>
-	  <option id="Libraries">Libraries</option>
-	    </select> </a>
-	    <br><br>
-	    <input type="submit">
-      </div>
-      </div>
+       <object id="logo" data="../static/logo.svg" type="image/svg+xml"></object>
+       <br><br>
+    <a class="pure-button pure-button-primary" href="#search">Click to search</a>
+    </center>
+  </div>
+
+
+  <div id="search">
+    <a name="search">
+    <center>
+  <select>
+    <option id="subway">Subway Entraces</option>
+    <option id="collisions">Motor Vehicle Collisions</option>
+    <option id="foods">Directory of Eateries</option>
+    <option id="wifi">Wifi Hotspots</option>
+    <option id="Theaters">Theaters</option>
+    <option id="Libraries">Libraries</option>
+      </select>
+      <br><br>
+      <input type="submit">
       </center>
   </div>
 
 
-<div id="heatpage" style="height:100%; width:80%">
+<div id="heatpage" style="height:100%; width:100%">
   <br><br><center>
   <a name="heat">
   <iframe  src="/heat"></iframe>
@@ -138,12 +142,12 @@
   <a name="about">
     <div id="apage">
       <p> 
-	<text id="about">About</text>
-	<br>
-	<br>
-	ZPaths is here to help you with your everyday New Yorker needs. Upon entering our site, you are given 10+ options to choose from for points of interest in the city: from subway entrances, to museums and galleries. We then return a heat map that displays the best areas in New York City to find those points of interest, as well as a bar graph displaying how common these ameneties are in each borough.
-	<br><br>
-	Created by Christina Ko, Justin Strauss, Fish Milnikiewicz, and Sunnam Quispe. 
+  <text id="about">About</text>
+  <br>
+  <br>
+  ZPaths is here to help you with your everyday New Yorker needs. Upon entering our site, you are given 10+ options to choose from for points of interest in the city: from subway entrances, to museums and galleries. We then return a heat map that displays the best areas in New York City to find those points of interest, as well as a bar graph displaying how common these ameneties are in each borough.
+  <br><br>
+  Created by Christina Ko, Justin Strauss, Fish Milnikiewicz, and Sunnam Quispe. 
       </p>
     </div>
   </a>
