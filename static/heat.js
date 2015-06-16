@@ -1,5 +1,5 @@
 var map, pointarray, heatmap;
-console.log("IN HEAT");
+//console.log("IN HEAT");
 var apis = {"Subway Entrances":"https://data.cityofnewyork.us/api/views/he7q-3hwy/rows.json?accessType=DOWNLOAD",
 		"NYPD Motor Vehicle Collisions":"https://data.cityofnewyork.us/api/views/h9gi-nx95/rows.json?accessType=DOWNLOAD",
 		"Directory of Eateries":"https://data.cityofnewyork.us/api/views/xx67-kt59/rows.json?accessType=DOWNLOAD",
@@ -28,10 +28,10 @@ var convertTo=function(addresses){
     for (i=0;i<addresses.length;i++){
 	geocoder.geocode( { 'address': addresses[i]}, function(results, status) {
 	    if (status == google.maps.GeocoderStatus.OK) {
-		console.log(results);
+		//console.log(results);
 		var pos=results[0].geometry.location;
-		console.log(addresses[i]);
-		console.log(pos);
+		//console.log(addresses[i]);
+		//console.log(pos);
 		coords.push(pos);
 	    }
 	    else {
@@ -41,7 +41,7 @@ var convertTo=function(addresses){
 	});
 
     }
-    console.log(coords);
+    //console.log(coords);
     return coords;
 }
 // var getTheaters=function(){
@@ -108,7 +108,7 @@ var getHospitals=function(){
 	    heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
 	}
 	else{
-	    console.log('uhoh');
+	    //console.log('uhoh');
 	}
     }
     request.send();
@@ -142,7 +142,7 @@ var getQLibraries=function(){
 	    heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
 	}
 	else{
-	    console.log('uhoh');
+	    //console.log('uhoh');
 	}
     }
     request.send();
@@ -176,7 +176,7 @@ var getVolunteer=function(){
 	    heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
 	}
 	else{
-	    console.log('uhoh');
+	    //console.log('uhoh');
 	}
     }
     request.send();
@@ -211,7 +211,7 @@ var getMVA=function(){
 	    heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
 	}
 	else{
-	    console.log('uhoh');
+	    //console.log('uhoh');
 	}
     }
     request.send();
@@ -246,7 +246,7 @@ var getWifi=function(){
 	    heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
 	}
 	else{
-	    console.log('uhoh');
+	    //console.log('uhoh');
 	}
     }
     request.send();
