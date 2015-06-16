@@ -6,12 +6,14 @@
 <div class="pure-menu pure-menu-open pure-menu-horizontal" style="position:fixed">
   <a href="/" class="pure-menu-heading">ZPaths</a>
   <ul class="pure-menu-list">
-    <li><a href="/">Home</a></li>
+    <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#search">Search</a>
+    <li><a href="#heatmap">Heatmap</a>
       </li>
   </ul>
 </div>
+
 <div class="pure-g">
   <div class="pure-u-1-5"></div>
   <div class="pure-u-3-5">
@@ -26,10 +28,9 @@
     {% endif %}
     {% endwith %}
     
-    <div id="map"></div>
-
-    
   </div>
+  </div>
+
   {% extends "base.html" %}
   {% block title %}
   ZPaths
@@ -51,16 +52,15 @@
   height:100%;
   width:100%
   }
-  #apage{
+  #search{
   height:100%;
-  color:gray;
-  font-size: 8px;
-  text-align: center;
-  margin: 100px 100px;
+  width:100%;
+  vertical-align: middle;
   }
   #about{
-  font-size:24px;
-  color:black;
+  height:100%;
+  width:100%;
+  vertical-align: middle;s
   }
   #mainpage{
   background-image: url(../static/nyc.jpg); background-color: #99FF99;
@@ -101,33 +101,63 @@
   };
 
   {% endblock %}
+
 {% block bodycontent %}
   <div id="mainpage">
+  <a name="home">
     <center>
-      <div class="splash-container">
-	<div class="splash">
-          <h1 class="splash-head">
-	    <object id="logo" data="../static/logo.svg" type="image/svg+xml"></object>
-	  </h1>
-	  <a name="search">
-	<select>
-	  <option id="subway">Subway Entraces</option>
-	  <option id="collisions">Motor Vehicle
-	Collisions</option>
-	  <options id="foods">Directory of Eateries</option>
-	  <option id="wifi">Wifi Hotspots</option>
-	  <option id="Theaters">Theaters</option>
-	  <option id="Libraries">Libraries</option>
-	    </select> </a>
-	    <br><br>
-	    <input type="submit">
-      </div>
-      </div>
+       <br><br><br><br><br><br><br><br><br><br>
+       <object id="logo" data="../static/logo.svg" type="image/svg+xml"></object>
+       <br><br>
+    <a class="pure-button pure-button-primary" href="#search">Click to enter</a>
+    </center>
+  </div>
+
+    <div id="about">
+      <a name="about">
+          <center>
+                 <br><br><br><br><br><br><br><br><br><br>
+             <h2> About </h2><br>
+        <h4> ZPaths is here to help you with your everyday New Yorker needs. Upon entering our site, you are given multiple options to choose from for points of interest in the city: from subway entrances, to museums and galleries. We then return a heat map that displays the best areas in New York City to find those points of interest, as well as a bar graph displaying how common these ameneties are in each borough.
+        <br><br>
+        Created by Christina Ko, Justin Strauss, Fish Milnikiewicz, and Sunnam Quispe
+        Stuyvesant High School Class of 2015
+        Mike Zamansky's Software Development Course
+        Check us out on GitHub
+        </h4>
+            </center>
+    </div>
+
+<hr>
+
+  <div id="search">
+    <a name="search">
+    <center>
+           <br><br><br><br>
+           <h2>What do you want to see a heat map of?</h2>
+
+<table class="pure-table">
+
+    <tbody>
+        <tr>
+           <td align="center"><img src="../static/img/crashes.jpg" alt="Crashes" style="height:200px;"><br><button class="pure-button pure-button-primary">Motor Vehicle Collisions</button></td>
+           <td align="center"><img src="../static/img/wifi.jpg" alt="Wifi" style="height:200px;"><br><button class="pure-button pure-button-primary">Wifi Hotspots</button></td>
+           <td align="center"><img src="../static/img/libraries.jpg" alt="Libraries" style="height:200px;"><br><button class="pure-button pure-button-primary">Queens Libraries</button></td>
+        </tr>
+
+        <tr>
+            <td align="center"><img src="../static/img/hospitals.jpg" alt="Hospitals" style="height:200px;"><br><button class="pure-button pure-button-primary">Hospitals</button></td>
+            <td align="center"><img src="../static/img/volunteers.jpg" alt="Volunteers" style="height:200px;"><br><button class="pure-button pure-button-primary">Volunteer Opportunities</button></td>
+            <td align="center">More datasets to be added <br> once they become available <br> through NYC Open Data.</td>
+        </tr>
+
+    </tbody>
+</table>
       </center>
   </div>
 
 
-<div id="heatpage" style="height:100%; width:80%">
+<div id="heatpage" style="height:100%; width:100%">
   <br><br><center>
   <a name="heat">
   <iframe  src="/heat"></iframe>
@@ -135,17 +165,6 @@
 </center>
 </div>
 <br>
-  <a name="about">
-    <div id="apage">
-      <p> 
-	<text id="about">About</text>
-	<br>
-	<br>
-	ZPaths is here to help you with your everyday New Yorker needs. Upon entering our site, you are given 10+ options to choose from for points of interest in the city: from subway entrances, to museums and galleries. We then return a heat map that displays the best areas in New York City to find those points of interest, as well as a bar graph displaying how common these ameneties are in each borough.
-	<br><br>
-	Created by Christina Ko, Justin Strauss, Fish Milnikiewicz, and Sunnam Quispe. 
-      </p>
-    </div>
-  </a>
+
   {% endblock %}
 </html>
