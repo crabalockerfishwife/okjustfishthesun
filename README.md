@@ -46,8 +46,8 @@ ZPaths is here to help you with your everyday New Yorker needs. Upon entering ou
 - [X] 5/11: make Digital Ocean droplet
 - [X] 5/13: use SVG to make cool logo
 - [X] 5/15: launch basic website
-- [ ] 5/17: test, code review, add any additional features
-- [ ] 5/19: use D3 to make bar graphs by borough
-- [ ] 5/21: shoot promo video
-- [ ] 5/23: edit promo video and post to YouTube
-- [ ] 5/25: fin
+- [X] 5/17: test, code review, add any additional features
+- [X] 5/19: use D3 to make bar graphs by borough
+- [X] 5/21: shoot promo video
+- [X] 5/23: edit promo video and post to YouTube
+- [X] 5/25: fin

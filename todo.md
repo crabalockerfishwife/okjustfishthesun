@@ -1,7 +1,7 @@
-- [ ] fix scrolling issue  
-- [ ] attempt function maker
+- [X] fix scrolling issue  
+- [X] attempt function maker
 - [ ] add heatmap title
-- [ ] rearrange order of divs
-- [ ] get rid of console.logs
+- [X] rearrange order of divs
+- [X] get rid of console.logs
 - [ ] on click reload thing
-- [ ] D3 stuff
+- [X] D3 stuff
