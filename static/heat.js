@@ -1,15 +1,11 @@
 var map, pointarray, heatmap;
 //console.log("IN HEAT");
-var apis = {"Subway Entrances":"https://data.cityofnewyork.us/api/views/he7q-3hwy/rows.json?accessType=DOWNLOAD",
+var apis = {"Hopitals":"https://data.cityofnewyork.us/api/views/ymhw-9cz9/rows.json?accessType=DOWNLOAD",
+		"Queens Libraries":"https://data.cityofnewyork.us/api/views/kh3d-xhq7/rows.json?accessType=DOWNLOAD",
+		"Volunteer Opportunities":"https://data.cityofnewyork.us/api/views/bquu-z2ht/rows.json?accessType=DOWNLOAD",
 		"NYPD Motor Vehicle Collisions":"https://data.cityofnewyork.us/api/views/h9gi-nx95/rows.json?accessType=DOWNLOAD",
-		"Directory of Eateries":"https://data.cityofnewyork.us/api/views/xx67-kt59/rows.json?accessType=DOWNLOAD",
-		"Manhattan Street Trees":"https://data.cityofnewyork.us/api/views/4eh7-xcm8/rows.json?accessType=DOWNLOAD",
-		"Wifi Hotspots":"https://data.cityofnewyork.us/api/views/jd4g-ks2z/rows.json?accessType=DOWNLOAD",
-		"Theaters":"https://data.cityofnewyork.us/api/views/2hzz-95k8/rows.json?accessType=DOWNLOAD",
-		"Libraries":"https://data.cityofnewyork.us/api/views/feuq-due4/rows.json?accessType=DOWNLOAD"
+		"Wifi Hotspots":"https://data.cityofnewyork.us/api/views/jd4g-ks2z/rows.json?accessType=DOWNLOAD"
         };
-
-var types = ["food","recreation","communication","transportation"];
 
 var makeltlng=function(exa){
     var cds=[];
@@ -44,40 +40,6 @@ var convertTo=function(addresses){
     //console.log(coords);
     return coords;
 }
-// var getTheaters=function(){
-//     var adds=[];
-//     var request=new XMLHttpRequest();
-//     request.open('GET','https://data.cityofnewyork.us/api/views/2hzz-95k8/rows.json?accessType=DOWNLOAD', true);
-//      request.onload = function() {
-// 	if (request.status >= 200 && request.status < 400) {
-// 	    var data = JSON.parse(request.responseText);
-// 	    var dats=data['data']
-// 	    for (i=0;i<dats.length;i++){
-// 		adds.push(dats[i][11]);
-// 	    }
-// 	    var ltlng=convertTo(adds);
-// 	    var pointArray = new google.maps.MVCArray(ltlng);
-// 	    heatmap = new google.maps.visualization.HeatmapLayer({
-// 		data: pointArray
-// 	    });
-// 	    var gradient = [
-// 		'rgba(0,255,255,0)',
-// 		'rgba(0,255,255,1)',
-// 		'rgba(0,255,0,1)',
-// 		'rgba(255,255,0,1)',
-// 		'rgba(255,165,0,1)',
-// 		'rgba(255,69,0,1)',
-// 		'rgba(255,0,0,1)'
-// 	    ]
-// 	    heatmap.setMap(map);
-// 	    heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
-// 	}
-// 	else{
-// 	    console.log('uhoh');
-// 	}
-//     }
-//     request.send();
-// }
 
 var getHospitals=function(){
     var coords=[]
@@ -253,12 +215,12 @@ var getWifi=function(){
 }
 function initialize() {
     var mapOptions = {
-	zoom: 13,
+	zoom: 11,
 	center: new google.maps.LatLng(40.7142700,-74.0059700)
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),
 			      mapOptions);
-    getVolunteer();
+//    getWifi();
 }
 
 function toggleHeatmap() {

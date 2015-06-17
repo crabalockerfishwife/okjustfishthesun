@@ -60,7 +60,7 @@
   #about{
   height:100%;
   width:100%;
-  vertical-align: middle;s
+  vertical-align: middle;
   }
   #mainpage{
   background-image: url(../static/nyc.jpg); background-color: #99FF99;
@@ -68,7 +68,7 @@
   width:100%
   }
   iframe{
-  height:900px;
+  height:650px;
   width:90%;
   }
   {% endblock %}
@@ -146,14 +146,14 @@
 
     <tbody>
         <tr>
-           <td align="center"><img src="../static/img/crashes.jpg" alt="Crashes" style="height:200px;"><br><button class="pure-button pure-button-primary">Motor Vehicle Collisions</button></td>
-           <td align="center"><img src="../static/img/wifi.jpg" alt="Wifi" style="height:200px;"><br><button class="pure-button pure-button-primary">Wifi Hotspots</button></td>
-           <td align="center"><img src="../static/img/libraries.jpg" alt="Libraries" style="height:200px;"><br><button class="pure-button pure-button-primary">Queens Libraries</button></td>
+           <td align="center"><img src="../static/img/crashes.jpg" alt="Crashes" style="height:200px;"><br><a class="pure-button pure-button-primary" id="button1" href="#heat">Motor Vehicle Collisions</a></td>
+           <td align="center"><img src="../static/img/wifi.jpg" alt="Wifi" style="height:200px;"><br><a class="pure-button pure-button-primary" id="button2" href="#heat">Wifi Hotspots</a></td>
+           <td align="center"><img src="../static/img/libraries.jpg" alt="Libraries" style="height:200px;"><br><a class="pure-button pure-button-primary" id="button3" href="#heat">Queens Libraries</a></td>
         </tr>
 
         <tr>
-            <td align="center"><img src="../static/img/hospitals.jpg" alt="Hospitals" style="height:200px;"><br><button class="pure-button pure-button-primary">Hospitals</button></td>
-            <td align="center"><img src="../static/img/volunteers.jpg" alt="Volunteers" style="height:200px;"><br><button class="pure-button pure-button-primary">Volunteer Opportunities</button></td>
+            <td align="center"><img src="../static/img/hospitals.jpg" alt="Hospitals" style="height:200px;"><br><a class="pure-button pure-button-primary" id="button4" href="#heat">Hospitals</a></td>
+            <td align="center"><img src="../static/img/volunteers.jpg" alt="Volunteers" style="height:200px;"><br><a class="pure-button pure-button-primary" id="button5" href="#heat">Volunteer Opportunities</a></td>
             <td align="center">More datasets to be added <br> once they become available <br> through NYC Open Data.</td>
         </tr>
 
@@ -164,9 +164,33 @@
 
 
 <div id="heatpage" style="height:100%; width:100%">
-  <br><br><center>
+  <center>
+  <br><br>
+    <iframe  src="/heat"></iframe>
   <a name="heat">
-  <iframe  src="/heat"></iframe>
+  <p>New York, NY</p>
+  <a class="pure-button pure-button-primary" href="#search">New Search</a>
+
+  <script type='text/javascript' src='../static/lib/jquery.js'></script>
+  <script>
+  $( "#button1" ).click(function() {
+  $( "p" ).html("Motor Vehicle Collisions");
+});
+  $( "#button2" ).click(function() {
+  $( "p" ).html("Wifi Hotspots");
+});
+  $( "#button3" ).click(function() {
+  $( "p" ).html("Queens Libraries");
+});
+  $( "#button4" ).click(function() {
+  $( "p" ).html("Hospitals");
+});
+  $( "#button5" ).click(function() {
+  $( "p" ).html("Volunteer Opportunities");
+});
+  </script>
+
+
   </a>
 </center>
 </div>
