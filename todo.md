@@ -3,5 +3,5 @@
 - [X] add heatmap title
 - [X] rearrange order of divs
 - [X] get rid of console.logs
-- [ ] on click reload thing
+- [X] on click reload thing
 - [X] D3 stuff
