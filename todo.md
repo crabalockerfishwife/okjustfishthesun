@@ -1,6 +1,6 @@
 - [X] fix scrolling issue  
 - [X] attempt function maker
-- [ ] add heatmap title
+- [X] add heatmap title
 - [X] rearrange order of divs
 - [X] get rid of console.logs
 - [ ] on click reload thing
