@@ -213,15 +213,6 @@ var getWifi=function(){
     }
     request.send();
 }
-function initialize() {
-    var mapOptions = {
-	zoom: 11,
-	center: new google.maps.LatLng(40.7142700,-74.0059700)
-    };
-    map = new google.maps.Map(document.getElementById('map-canvas'),
-			      mapOptions);
-//    getWifi();
-}
 
 function toggleHeatmap() {
     heatmap.setMap(heatmap.getMap() ? null : map);
@@ -235,5 +226,3 @@ function changeRadius() {
 function changeOpacity() {
     heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
 }
-
-google.maps.event.addDomListener(window, 'load', initialize);

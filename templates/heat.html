@@ -5,18 +5,18 @@
     <title>Heatmaps</title>
     <style>
       html, body{
-      height: 90%;
-      width:90%;
+      height: 100%;
+      width:100%;
       margin: 0px;
       padding: 0px
       }
       #main{
-      height:90%;
-      width:90%;
+      height:100%;
+      width:100%;
       }
       #map-canvas{
-      height: 90%;
-      width:90%;
+      height: 75%;
+      width:100%;
       margin: 0px;
       padding: 0px
       }
@@ -26,9 +26,93 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script>
     <script src="../static/heat.js"> </script>
 
+    {% if mapnum == "1" %}
+    <script type="text/javascript">
+    function initialize() {
+    var mapOptions = {
+  zoom: 11,
+  center: new google.maps.LatLng(40.7142700,-74.0059700)
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+    getMVA();
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+{% elif mapnum == "2" %}
+    <script type="text/javascript">
+    function initialize() {
+    var mapOptions = {
+  zoom: 11,
+  center: new google.maps.LatLng(40.7142700,-74.0059700)
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+    getWifi();
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+{% elif mapnum == "3" %}
+    <script type="text/javascript">
+    function initialize() {
+    var mapOptions = {
+  zoom: 11,
+  center: new google.maps.LatLng(40.7142700,-74.0059700)
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+    getQLibraries();
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+{% elif mapnum == "4" %}
+    <script type="text/javascript">
+    function initialize() {
+    var mapOptions = {
+  zoom: 11,
+  center: new google.maps.LatLng(40.7142700,-74.0059700)
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+    getHospitals();
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+{% elif mapnum == "5" %}
+    <script type="text/javascript">
+    function initialize() {
+    var mapOptions = {
+  zoom: 11,
+  center: new google.maps.LatLng(40.7142700,-74.0059700)
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+    getVolunteer();
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+    {% else %}
+    <script type="text/javascript">
+    function initialize() {
+    var mapOptions = {
+  zoom: 11,
+  center: new google.maps.LatLng(40.7142700,-74.0059700)
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+    {% endif %}
+
   </head>
 
   <body>
-    <div id="map-canvas" style="height:90%;"></div>
+    <div id="map-canvas" style="height:100%;"></div>
   </body>
 </html>
