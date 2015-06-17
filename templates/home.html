@@ -121,7 +121,7 @@
           <center>
                  <br><br><br><br><br><br><br><br><br><br>
              <h2> About </h2><br>
-        ZPaths is here to help you with your everyday New Yorker needs. Upon entering our site, you are given multiple options to choose from for points of interest in the city: from subway entrances, to museums and galleries. We then return a heat map that displays the best areas in New York City to find those points of interest, as well as a bar graph displaying how common these ameneties are in each borough.
+        ZPaths is here to help you with your everyday New Yorker needs. Upon entering our site, you are given multiple options to choose from for points of interest in the city: from wifi hotspots, to libraries and hospitals. We then return a heat map that displays the best areas in New York City to find those points of interest.
         <br><br>
         Created by Christina Ko, Justin Strauss, Fish Milnikiewicz, and Sunnam Quispe <br>
         Stuyvesant High School Class of 2015 <br>
@@ -162,31 +162,38 @@
       </center>
   </div>
 
+<hr>
 
 <div id="heatpage" style="height:100%; width:100%">
   <center>
   <br><br>
-    <iframe  src="/heat"></iframe>
+    <iframe id="frame" src="/heat/0"></iframe>
   <a name="heat">
-  <p>New York, NY</p>
+  <p id="maptitle">New York, NY</p>
   <a class="pure-button pure-button-primary" href="#search">New Search</a>
 
   <script type='text/javascript' src='../static/lib/jquery.js'></script>
   <script>
+
   $( "#button1" ).click(function() {
-  $( "p" ).html("Motor Vehicle Collisions");
+  $( "#frame" ).attr('src', '/heat/1');
+  $( "#maptitle" ).html("Motor Vehicle Collisions");
 });
   $( "#button2" ).click(function() {
-  $( "p" ).html("Wifi Hotspots");
+  $( "#frame" ).attr('src', "/heat/2");
+  $( "#maptitle" ).html("Wifi Hotspots");
 });
   $( "#button3" ).click(function() {
-  $( "p" ).html("Queens Libraries");
+  $( "#frame" ).attr('src', "/heat/3");
+  $( "#maptitle" ).html("Queens Libraries");
 });
   $( "#button4" ).click(function() {
-  $( "p" ).html("Hospitals");
+  $( "#frame" ).attr('src', "/heat/4");
+  $( "#maptitle" ).html("Hospitals");
 });
   $( "#button5" ).click(function() {
-  $( "p" ).html("Volunteer Opportunities");
+  $( "#frame" ).attr('src', "/heat/5");
+  $( "#maptitle" ).html("Volunteer Opportunities");
 });
   </script>
 
