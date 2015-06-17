@@ -6,14 +6,18 @@ Watch our demo video:
 
 ## About
 
-ZPaths is here to help you with your everyday New Yorker needs. Upon entering our site, you are given 10+ options to choose from for points of interest in the city: from subway entrances, to museums and galleries. We then return a heat map that displays the best areas in New York City to find those points of interest, as well as a bar graph displaying how common these ameneties are in each borough.  
+ZPaths is here to help you with your everyday New Yorker needs. Upon entering our site, you are given multiple options to choose from for points of interest in the city: from wifi hotspots, to libraries and hospitals. We then return a heat map that displays the best areas in New York City to find those points of interest. 
+
+Created by Christina Ko, Justin Strauss, Fish Milnikiewicz, and Sunnam Quispe 
+Stuyvesant High School Class of 2015 
+Mike Zamansky's Software Development Course 
 
 ## How to Run Locally
 
 1. open up a terminal and type `$git clone git@github.com:crabalockerfishwife/okjustfishthesun`
 2. create a virtual environment (optional) and type `$pip install flask Flask`
 3. type `$python app.py` to run the app
-4. go to [localhost:8000](localhost:5000) in your browser (Chrome is recommended)
+4. go to [localhost:8000](localhost:8000) in your browser (Chrome is recommended)
 
 ## Tools Utilized
 
@@ -24,8 +28,8 @@ ZPaths is here to help you with your everyday New Yorker needs. Upon entering ou
 - [FreeDNS](http://freedns.afraid.org/) for web hosting  
 - [Google Maps API](https://developers.google.com/maps/) for directions and geolocation  
 - [Pure CSS](http://purecss.io/) for CSS styling  
-- [JQuery](http://jquery.com/) for interactive form widgets  
-- [Google Places](https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete) for location autocompletion  
+- [JQuery](http://jquery.com/) to facilitate the single page web app
+- [Google Heatmaps](https://developers.google.com/maps/documentation/javascript/examples/layer-heatmap) to assign color gradients to data points
 - [lodash](https://lodash.com/) for map, filter, reduce functions  
 - [NYC Open Data](https://nycopendata.socrata.com/) for JSON data visualization  
 
