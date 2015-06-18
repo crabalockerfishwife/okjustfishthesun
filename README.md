@@ -2,7 +2,7 @@ zpaths
 =========
 Software Development Spring Term Final Project  
 Visit our website:  [http://zpaths.openpaths.cc/](http://zpaths.openpaths.cc/)  
-Watch our demo video:  
+Watch our demo video: [https://youtu.be/xfFwqfw49Ds/](https://youtu.be/xfFwqfw49Ds/)
 
 ## About
 
